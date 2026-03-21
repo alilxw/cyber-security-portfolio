@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali ELOUAHED | Cyber Security & Systems Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.gh.io/devicons/devicon@latest/devicon.min.css">
+
+
+</head>
+    <div id="transition-overlay"></div> <nav> ... </nav> 
+
+<body>
+    <canvas id="matrix-bg"></canvas>
+    <div id="transition-overlay"></div> 
+    <header class="main-header">
+        <nav class="navbar">
+    
+	<div class="nav-brand" "logo flicker" id="logo">Ali_soc.exe is running </div>
+    <ul class="nav-links">
+        <li><a href="#about-me" class="active">#About-me</a></li>
+        <li><a href="#projects">#Projects</a></li>
+        <li><a href="#skills">#Skills</a></li>
+		<li><a href="#cyber-lab">#Lab-Env</a></li> 
+        <li><a href="#cv">#Resume</a></li>
+        <li><a href="#contacts">#Contacts</a></li>
+        <div class="move-indicator"></div>
+    </ul>
+        </nav>
+    </header>
+    <main id="content-wrapper">
+        
+       <section id="about-me" class="content-section active">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-text-wrapper">
+                <h1 class="flicker">Ali ELOUAHED</h1>
+                <h2 class="role-title">> <span id="typewriter"></span><span class="cursor">|</span></h2>
+                
+                <p class="bio-long">
+                    I am an experienced <span class="highlight">SOC Analyst</span> with over 3 years of expertise in maintaining robust IT infrastructures, ensuring system security, and providing efficient technical support. My proven ability in troubleshooting complex network issues and implementing effective software solutions has allowed me to successfully maintain and secure IT systems in various professional environments.
+                </p>
+            </div>
+
+            <div class="hero-image">
+                <img src="assets/profile.png" alt="Ali Elouahed" id="my-photo">
+                
+                <div class="quote-container">
+                    <div class="quote-box">
+                        <span class="quote-icon left">“</span>
+                        <p class="quote-text">
+                            Control can sometimes be an illusion.<br>
+                            But sometimes you need illusion to gain control.
+                        </p>
+                        <span class="quote-icon right">”</span>
+                        <div class="quote-author">- Mr. Robot</div>
+                    </div>
+                </div>
+            </div> </div> </div> </section>
+
+
+
+       <section id="projects" class="content-section">
+    <h2 class="section-title">#Operational_Deployments</h2>
+    
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-icons">
+                <i class="fas fa-user-shield"></i>
+                <i class="fas fa-server"></i>
+            </div>
+            <div class="project-tags">SIEM / ITSM / XDR</div>
+            <h3>Security Strategy Lead</h3>
+            <p>Information Systems Security Manager at Medical & Social Center, Kolea. Ensuring proactive monitoring and operational continuity.</p>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icons">
+                <i class="fab fa-linux"></i>
+                <i class="fas fa-network-wired"></i>
+                <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div class="project-tags">Nagios XI / OCS / GLPI</div>
+            <h3>Network Supervision</h3>
+            <p>Managed computer park and network supervision at Etterkib SPA. Deployed Ubuntu servers for real-time system status reporting.</p>
+        </div>
+
+        <div class="project-card terminal-card">
+    <div class="terminal-header">
+        <span class="terminal-circle red"></span>
+        <span class="terminal-circle yellow"></span>
+        <span class="terminal-circle green"></span>
+        <span class="terminal-title">Ali@soc-lab:~# status_check.sh</span>
+    </div>
+    <div class="live-logs">
+    <p class="log-entry">[INFO] Initializing SOC_Portal v2.0...</p>
+    <p class="log-entry">[OK] Wazuh Agent: 001 Connected.</p>
+    <p class="log-entry">[OK] Splunk Indexer: Active.</p>
+    <p class="log-entry">[WARN] Anomalous login detected from 192.168.1.50...</p>
+    <p class="log-entry">[BLOCK] pfSense: Dropping packet from Blacklisted IP.</p>
+
+    </div>
+</div>
+
+
+   
+            </div>
+        </section>
+		<section id="cyber-lab" class="content-section">
+    <h2 class="section-title">#virtualized_enterprise_lab</h2>
+    <div class="lab-grid">
+        <div class="lab-description">
+            <p class="bio-long">
+                I designed and maintain a <span class="highlight">multi-node virtualized environment</span> using VMware to simulate enterprise networks. This infrastructure serves as a sandbox for validating detection mechanisms and practicing full-spectrum security operations.
+            </p>
+        </div>
+        
+        <div class="experience-columns">
+            <div class="exp-card defensive">
+                <h3><i class="fas fa-shield-alt"></i> Defensive (Blue Team)</h3>
+                <ul>
+                    <li>SIEM Engineering: <span class="highlight">Splunk & Wazuh</span> log collection.</li>
+                    <li>Incident Response: Workflow integration using <span class="highlight">IRIS</span>.</li>
+                    <li>Traffic Analysis: Deep packet inspection via <span class="highlight">Wireshark</span>.</li>
+                    <li>Threat Hunting: Building detection rules for brute-force & lateral movement.</li>
+                </ul>
+            </div>
+
+            <div class="exp-card offensive">
+                <h3><i class="fas fa-terminal"></i> Offensive (Red Team)</h3>
+                <ul>
+                    <li>Network Enumeration: Advanced <span class="highlight">Nmap</span> service discovery.</li>
+                    <li>Web Security: <span class="highlight">Burp Suite</span> & DirBuster testing.</li>
+                    <li>Exploitation: <span class="highlight">Metasploit (MSFvenom)</span> & credential attacks via Hydra.</li>
+                    <li>Infrastructure: Kali Linux & Parrot OS deployment.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   </section>
+   
+
+      <section id="skills" class="content-section">
+    <h2 class="section-title">#Skills_Matrix</h2>
+    <div class="skills-grid">
+        <div class="skill-box">
+            <i class="fas fa-server"></i>
+            <span>Virtualization</span>
+			<span class="tag">VMware Pro</span>
+        </div>
+		<div class="skill-box">
+    <i class="fab fa-linux"></i>
+    <span>Security OS</span>
+    <div class="skill-tags">
+        <span class="tag">Kali Linux</span>
+        <span class="tag">Parrot OS</span>
+    </div>
+</div>
+        <div class="skill-box">
+            <i class="fas fa-border-all"></i>
+            <span>Firewalls</span>
+			<span class="tag">PfSense</span>
+			
+        </div>
+
+        <div class="skill-box">
+            <i class="fas fa-microscope"></i>
+            <span>SIEM</span>
+			<span class="tag">Splunk</span>
+			<span class="tag">Wazuh</span>
+			
+        </div>
+        <div class="skill-box">
+            <i class="fas fa-briefcase-medical"></i>
+            <span>Incident Response</span>
+			<span class="tag">IRIS integration</span>
+        </div>
+        <div class="skill-box">
+            <i class="fas fa-network-wired"></i>
+            <span>Traffic Analysis</span>
+			<span class="tag">Wireshark</span>
+        </div>
+
+        <div class="skill-box">
+            <i class="fas fa-user-secret"></i>
+            <span>Mapping & Enumeration</span>
+			<span class="tag">Nmap</span>
+        </div>
+        <div class="skill-box">
+            <i class="fas fa-bug"></i>
+            <span>Web Security</span>
+			<span class="tag">BurpSuite</span>
+        </div>
+        <div class="skill-box">
+            <i class="fas fa-bomb"></i>
+            <span>Bruteforce & Payloads</span>
+			<span class="tag">Metasploit</span>
+			<span class="tag">Dirbuster</span>
+			<span class="tag">Hydra</span>
+        </div>
+
+        <div class="skill-box">
+            <i class="fas fa-magnifying-glass"></i>
+            <span>Monitoring and IT Service Management </span>
+			<span class="tag">Nagios X</span>
+			<span class="tag">GLPI</span>
+        </div>
+        <div class="skill-box">
+            <i class="devicon-python-plain"></i>
+            <span>Python for Security automation </span>
+        </div>
+        <div class="skill-box">
+            <i class="fab fa-windows"></i>
+            <span>Active Directory & LDAP integration </span>
+        </div>
+    </div>
+</section> 
+
+
+        <section id="cv" class="content-section">
+            <div class="center-wrapper">
+        <h2 class="section-title">#Resume</h2>
+        <p>Download my full Resume for a detailed overview of my Profile.</p>
+        <a href="assets/Ali-Elouahed_SOC-analyst.pdf" class="download-btn" download>
+            <i class="fas fa-file-pdf"></i> Download my Resume.PDF
+        </a>
+    </div>
+</section>
+
+        <section id="contacts" class="content-section">
+           <div class="center-wrapper">
+        <h2 class="section-title">#Contact</h2>
+		<p class="cta-text">Looking for a dedicated SOC Analyst?</p>
+         <a href="mailto:Elouahedali@gmail.com" class="hire-btn">Initiate Connection</a>
+       
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Elouahedali@gmail.com</p>
+            <p><i class="fas fa-phone"></i> (+213) 676 77 08 76</p>
+            <p><i class="fas fa-map-marker-alt"></i> Ben Aknoun, Algiers</p>
+			<div class="cta-container">
+         
+        </div>
+        </div>
+    </div>
+</section>
+		
+
+    </main>
+
+    <script src="script.js"></script>
+<footer class="cyber-footer">
+    <div class="container">
+        <div class="social-links" >
+		<div class="footer-socials">
+            <a href="https://www.linkedin.com/in/ali-elouahed/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.facebook.com/Elouahed.Ali/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/alilxw" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        </div>
+		
+    </div>
+<div class="soc-footer">
+    <div class="footer-item"><span class="heartbeat"></span> STATUS: THREAT HUNTING</div>
+    <div class="footer-item"><span class="logo flicker">&copy; 2026 Ali Elouahed. All rights reserved. <span class="highlight">NO AI NEEDED HERE lol.</span> </div>
+    <div class="footer-item"><span class="label">Last Lab Update:</span> <span id="realtime-date" class="status-blue"></span></div>
+	</div>
+</footer>
+</body>
+
+</html>
+
+
