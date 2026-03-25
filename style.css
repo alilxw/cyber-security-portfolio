@@ -296,7 +296,7 @@ img {
 
 
 /* Responsive Fix: Stack them on mobile devices */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .hero-content {
         flex-direction: column-reverse; /* Image on top, text below for mobile */
         text-align: center;
@@ -343,6 +343,10 @@ footer {
     margin-bottom: 50px;
 	text-align: center;
 	
+}
+  .navbar, .tabs {
+    display: none;
+  }
 }
 
 
