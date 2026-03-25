@@ -1049,71 +1049,50 @@ h1.flicker {
     box-shadow: 0 0 10px var(--accent);
 }
 
-/* --- MOBILE & TABLET OPTIMIZATION --- */
-@media (max-width: 968px) {
-    /* Stack the bio and the image vertically */
-    .hero-content {
-        flex-direction: column !important;
-        text-align: center;
-        padding-top: 80px; /* Space for the mobile navbar */
-        gap: 40px;
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 4%;
     }
-
-    /* Center the text wrapper and bio */
-    .hero-text-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    
+    .nav-brand {
+        font-size: 0.7rem;
     }
-
-    .bio-long {
-        margin: 0 auto;
-        font-size: 0.95rem;
-    }
-
-    /* Adjust the photo and proverb box for smaller screens */
-    #my-photo {
-        max-width: 320px; /* Slightly smaller for mobile */
-    }
-
-    .quote-container {
-        margin-top: 30px !important; /* Pulls it closer on mobile */
-        max-width: 90% !important;
-    }
-
-    .quote-box {
-        padding: 20px;
-        width: 100%;
-    }
-
-    .quote-text {
-        font-size: 0.85rem; /* Smaller text for better fit */
-    }
-
-    /* Adjust System Status for mobile */
-    .system-status {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .status-item {
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .status-item .label {
-        width: auto;
-        margin-right: 0;
-    }
-
-    /* Navigation adjustments */
+    
     .nav-links {
         gap: 15px;
+        overflow-x: auto; /* Allows scrolling if needed */
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px; /* Space for scrollbar */
     }
     
     .nav-links a {
         font-size: 0.75rem;
+        white-space: nowrap; /* Prevents text wrapping on tabs */
+    }
+    
+    /* Optional: Hide scrollbar but keep functionality */
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-links {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+/* For very small screens (below 480px) */
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 12px;
+    }
+    
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+    
+    .nav-brand {
+        font-size: 0.65rem;
     }
 }
 
