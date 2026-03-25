@@ -343,17 +343,7 @@ footer {
     margin-bottom: 50px;
 	text-align: center;
 	
-.navbar {
-  width: 100%;
-  max-width: 100%;
-  flex-wrap: wrap; /* If using flexbox */
 }
-
-.tabs {
-  flex: 1;
-  min-width: auto;
-}
-
 
 
 
