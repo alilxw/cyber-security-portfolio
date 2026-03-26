@@ -389,7 +389,7 @@ footer {
 
 /* Offset the name by a different amount */
 h1.flicker {
-    animation-delay: 0.2s;
+    animation-delay: 0.5s;
 }
 
 .nav-links a {
