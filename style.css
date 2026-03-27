@@ -1335,3 +1335,93 @@ footer-socials {
     text-decoration: none;
     font-weight: bold;
 }
+
+
+/* --- SKILLS GRID & TOOLKIT STYLING --- */
+.skill-category {
+    margin-bottom: 60px;
+}
+
+.skill-cat-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.skill-item {
+    background: rgba(15, 15, 15, 0.4);
+    border: 1px solid #222;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    border-color: var(--accent);
+    background: rgba(0, 123, 255, 0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.1);
+}
+
+/* Icon & Logo Styling */
+.skill-item i {
+    font-size: 2.5rem;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.skill-item:hover i {
+    color: var(--accent);
+}
+
+.tool-icon {
+    height: 40px;
+    width: auto;
+    margin-bottom: 15px;
+    filter: grayscale(1) opacity(0.7);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover .tool-icon {
+    filter: grayscale(0) opacity(1);
+}
+
+/* Specific adjustment for Wazuh logo if needed */
+.wazuh-adjust {
+    height: 35px;
+}
+
+/* Text Styling within Cards */
+.skill-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.skill-status {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    color: #666;
+}
+
+.active-status::before {
+    content: "●";
+    color: #28a745; /* Green for Active */
+    margin-right: 5px;
+}
