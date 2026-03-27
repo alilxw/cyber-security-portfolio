@@ -815,7 +815,7 @@ h1.flicker {
 .nav-brand {
     font-family: 'Fira Code', monospace;
     font-weight: bold;
-    font-size: 1.1rem; /* Slightly larger since there's no icon */
+    font-size: 0.8rem; /* Slightly larger since there's no icon */
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -827,15 +827,7 @@ h1.flicker {
     animation: blink 1s infinite;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
 
-.nav-brand::after {
-    content: '_';
-    animation: blink 1s infinite;
-}
 
 @keyframes blink {
     0%, 100% { opacity: 1; }
