@@ -1425,3 +1425,9 @@ footer-socials {
     color: #28a745; /* Green for Active */
     margin-right: 5px;
 }
+
+
+/* Specific Icon Tweak for Parrot/Kali */
+.fa-mask, .fa-user-secret {
+    color: var(--accent) !important;
+}
