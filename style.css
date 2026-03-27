@@ -1431,3 +1431,7 @@ footer-socials {
 .fa-mask, .fa-user-secret {
     color: var(--accent) !important;
 }
+
+
+.defensive { border-left: 4px solid var(--accent); } /* Your Blue */
+.offensive { border-left: 4px solid #ff4b2b; }      /* Cyber Red */
