@@ -1436,11 +1436,11 @@ footer-socials {
 
 
 .defensive { border-left: 4px solid var(--accent); } /* Your Blue */
-.offensive { border-left: 4px solid #ff4b2b; }      /* Cyber Red */
+.offensive { border-left: 4px solid #ff4b2b;       /* Cyber Red */
 
 
 
-
+}
 
 .lab-stats {
     display: grid;
