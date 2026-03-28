@@ -161,3 +161,15 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
+
+
+// Make the dashboard look "live"
+setInterval(() => {
+    const cpu = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+    const cpuElem = document.getElementById('cpu-load');
+    if(cpuElem) {
+        cpuElem.innerText = `${cpu}%`;
+        cpuElem.parentElement.querySelector('.bar-fill').style.width = `${cpu}%`;
+    }
+}, 3000);
+
