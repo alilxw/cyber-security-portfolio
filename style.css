@@ -999,7 +999,7 @@ h1.flicker {
     padding-left: 0 !important;   /* This removes the right-side push */
     width: 100%;
     
-    animation: text-flicker 5s infinite;
+    ;
 }
 
 /* Align the author to match the centered text */
