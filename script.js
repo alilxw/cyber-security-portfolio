@@ -143,7 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
     timeElement.textContent = `${year}-${month}-${day} ${hours}:${minutes}`;
 }
 
+// Run once on load
+updateLabTime();
 
+// Optional: Update every minute so the time stays "live" while they browse
+setInterval(updateLabTime, 6000);
+});
 
 // Type 'sudo' anywhere on the page to see a secret message
 let input = "";
@@ -151,9 +156,10 @@ window.addEventListener('keydown', (e) => {
     input += e.key;
     if (input.includes("sudo")) {
         alert("ACCESS GRANTED: Root privileges enabled for guest user.");
-        document.body.style.filter = "hue-rotate(200deg)"; // Turns the whole site a different color!
+        document.body.style.filter = "hue-rotate(180deg)"; // Turns the whole site a different color!
         input = "";
     }
 });
+
 
 
