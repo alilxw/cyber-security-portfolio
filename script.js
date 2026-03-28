@@ -156,7 +156,7 @@ window.addEventListener('keydown', (e) => {
     input += e.key;
     if (input.includes("sudo")) {
         alert("ACCESS GRANTED: Root privileges enabled for guest user.");
-        document.body.style.filter = "hue-rotate(90deg)"; // Turns the whole site a different color!
+        document.body.style.filter = "hue-rotate(45deg)"; // Turns the whole site a different color!
         input = "";
     }
 });
