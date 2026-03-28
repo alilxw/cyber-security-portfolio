@@ -1442,27 +1442,74 @@ footer-socials {
 
 }
 
-.lab-stats {
+.lab-dashboard {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+    font-family: 'Fira Code', monospace;
 }
-.stat-box {
+
+.stat-card {
+    background: rgba(10, 10, 10, 0.6);
     border: 1px solid var(--border);
-    padding: 10px;
-    text-align: center;
-    background: rgba(0, 123, 255, 0.05);
+    padding: 15px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
 }
-.stat-value { color: var(--accent); font-weight: bold; }
-.stat-label { font-size: 0.7rem; color: #666; text-transform: uppercase; }
+
+.stat-label { font-size: 0.7rem; color: var(--accent); display: block; margin-bottom: 5px; }
+.stat-value { font-size: 1.2rem; font-weight: bold; color: #fff; display: block; }
+.stat-sub { font-size: 0.6rem; color: #555; text-transform: uppercase; }
+
+.stat-bar { height: 2px; background: #222; margin-top: 10px; width: 100%; }
+.bar-fill { height: 100%; background: var(--accent); transition: width 0.5s ease; }
+
+.status-green { color: #28a745 !important; text-shadow: 0 0 5px rgba(40, 167, 69, 0.5); }
 
 
-.contact-label {
+
+
+.input-group { margin-bottom: 25px; position: relative; }
+
+.decrypt-label {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+#cyber-contact input, #cyber-contact textarea {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 12px;
+    color: #fff;
     font-family: 'Fira Code', monospace;
     transition: 0.3s;
 }
-.contact-label:hover::after {
-    content: " [DECRYPTING...]";
+
+#cyber-contact input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+.cyber-button {
+    background: transparent;
+    border: 1px solid var(--accent);
     color: var(--accent);
+    padding: 10px 25px;
+    cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    transition: 0.3s;
+}
+
+.cyber-button:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 15px var(--accent);
 }
