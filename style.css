@@ -1442,32 +1442,6 @@ footer-socials {
 
 }
 
-.lab-dashboard {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 40px;
-    font-family: 'Fira Code', monospace;
-}
-
-.stat-card {
-    background: rgba(10, 10, 10, 0.6);
-    border: 1px solid var(--border);
-    padding: 15px;
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-}
-
-.stat-label { font-size: 0.7rem; color: var(--accent); display: block; margin-bottom: 5px; }
-.stat-value { font-size: 1.2rem; font-weight: bold; color: #fff; display: block; }
-.stat-sub { font-size: 0.6rem; color: #555; text-transform: uppercase; }
-
-.stat-bar { height: 2px; background: #222; margin-top: 10px; width: 100%; }
-.bar-fill { height: 100%; background: var(--accent); transition: width 0.5s ease; }
-
-.status-green { color: #28a745 !important; text-shadow: 0 0 5px rgba(40, 167, 69, 0.5); }
-
 
 
 
