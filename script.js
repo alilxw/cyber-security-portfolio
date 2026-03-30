@@ -162,25 +162,31 @@ window.addEventListener('keydown', (e) => {
 });
 
 
-function toggleMode() {
+function toggleTheme() {
     const body = document.body;
-    const brand = document.querySelector('.nav-brand span');
-    const modeText = document.getElementById('mode-text');
-    
-    // Toggle the class on the body
-    body.classList.toggle('offensive-theme');
+    const icon = document.getElementById('theme-icon');
+    const text = document.getElementById('theme-text');
 
-    if (body.classList.contains('offensive-theme')) {
-        brand.innerText = "Ali_root.sh is executing";
-        modeText.innerText = "OFFENSIVE_MODE";
-        console.log("RED_TEAM_ACTIVE: System compromised.");
+    body.classList.toggle('light-theme');
+
+    if (body.classList.contains('light-theme')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        text.innerText = "SYSTEM_DAY";
+        localStorage.setItem('theme', 'light');
     } else {
-        brand.innerText = "Ali_soc.exe is running";
-        modeText.innerText = "DEFENSIVE_MODE";
-        console.log("BLUE_TEAM_ACTIVE: System secured.");
+        icon.classList.replace('fa-sun', 'fa-moon');
+        text.innerText = "SYSTEM_NIGHT";
+        localStorage.setItem('theme', 'dark');
     }
 }
 
+// Check for saved user preference on page load
+window.onload = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        toggleTheme(); // Trigger light mode if they chose it before
+    }
+};
 
 
 
