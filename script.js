@@ -165,41 +165,5 @@ window.addEventListener('keydown', (e) => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themeBtn = document.getElementById('theme-toggle-btn');
-    const body = document.body;
-    
-    // 1. Check for saved theme immediately
-    if (localStorage.getItem('theme') === 'light') {
-        body.classList.add('light-theme');
-        updateToggleUI(true);
-    }
-
-    // 2. Click Event
-    themeBtn.addEventListener('click', () => {
-        body.classList.toggle('light-theme');
-        const isLight = body.classList.contains('light-theme');
-        
-        // Save preference
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        
-        // Update Icons/Text
-        updateToggleUI(isLight);
-    });
-
-    function updateToggleUI(isLight) {
-        const icon = document.getElementById('theme-icon');
-        const text = document.getElementById('theme-text');
-        
-        if (isLight) {
-            if(icon) icon.className = 'fas fa-sun';
-            if(text) text.innerText = 'SYSTEM_DAY';
-        } else {
-            if(icon) icon.className = 'fas fa-moon';
-            if(text) text.innerText = 'SYSTEM_NIGHT';
-        }
-    }
-});
-
 
 
