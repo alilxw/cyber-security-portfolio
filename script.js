@@ -162,31 +162,44 @@ window.addEventListener('keydown', (e) => {
 });
 
 
-function toggleTheme() {
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('theme-toggle-btn');
     const body = document.body;
-    const icon = document.getElementById('theme-icon');
-    const text = document.getElementById('theme-text');
-
-    body.classList.toggle('light-theme');
-
-    if (body.classList.contains('light-theme')) {
-        icon.classList.replace('fa-moon', 'fa-sun');
-        text.innerText = "SYSTEM_DAY";
-        localStorage.setItem('theme', 'light');
-    } else {
-        icon.classList.replace('fa-sun', 'fa-moon');
-        text.innerText = "SYSTEM_NIGHT";
-        localStorage.setItem('theme', 'dark');
+    
+    // 1. Check for saved theme immediately
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-theme');
+        updateToggleUI(true);
     }
-}
 
-// Check for saved user preference on page load
-window.onload = () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        toggleTheme(); // Trigger light mode if they chose it before
+    // 2. Click Event
+    themeBtn.addEventListener('click', () => {
+        body.classList.toggle('light-theme');
+        const isLight = body.classList.contains('light-theme');
+        
+        // Save preference
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        
+        // Update Icons/Text
+        updateToggleUI(isLight);
+    });
+
+    function updateToggleUI(isLight) {
+        const icon = document.getElementById('theme-icon');
+        const text = document.getElementById('theme-text');
+        
+        if (isLight) {
+            if(icon) icon.className = 'fas fa-sun';
+            if(text) text.innerText = 'SYSTEM_DAY';
+        } else {
+            if(icon) icon.className = 'fas fa-moon';
+            if(text) text.innerText = 'SYSTEM_NIGHT';
+        }
     }
-};
+});
 
 
 
