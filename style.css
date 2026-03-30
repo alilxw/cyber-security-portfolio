@@ -1475,8 +1475,8 @@ body {
     justify-content: center;
 }
 
-#hero-img {
-flex: 1;
+.hero-image {
+    flex: 1;
     display: flex !important;
 	margin-top: -100px !important;
     flex-direction: column !important;
@@ -1486,6 +1486,7 @@ flex: 1;
     padding: 20px;
 }
 
+/* Make the photo larger */
 #my-photo {
     width: 100%;
     max-width: 480px; /* Increased from 380px to make it look bigger */
@@ -1500,7 +1501,8 @@ flex: 1;
     filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
     
     transition: all 0.5s ease;
-	}
+}
+
 
 /* Mobile Responsiveness: Stack them vertically on phones */
 @media (max-width: 992px) {
@@ -1553,4 +1555,24 @@ flex: 1;
     /* Ensure no 'position: absolute' is here */
 }
 
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px; /* Aligns with your navbar width */
+    margin: 0 auto; /* Centers the content */
+    padding: 0 60px;
+    gap: 60px;
+}
 
+.hero-text {
+    flex: 1.2; /* Gives text more room */
+    text-align: left;
+}
+
+
+
+/* Text Side Styling */
+.hero-text {
+    flex: 1; /* Takes up 50-60% of the space */
+}
