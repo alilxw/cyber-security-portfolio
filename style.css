@@ -1479,9 +1479,14 @@ body {
     text-align: left;
 }
 
-.hero-image-side {
+.hero-image {
     flex: 1;
-    display: flex;
-    justify-content: right;
+    display: flex !important;
+	margin-top: -100px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    gap: 40px; /* Space between photo and proverb */
+    padding: 20px;
 }
 
