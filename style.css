@@ -13,6 +13,7 @@ body {
 	
 }
 
+
 .nav-links {
     position: relative; /* Essential for the indicator to align correctly */
     display: flex;
@@ -937,7 +938,21 @@ h1.flicker {
 }
 
 /* Make the photo larger */
-
+#my-photo {
+    width: 100%;
+    max-width: 480px; /* Increased from 380px to make it look bigger */
+    height: auto;
+    display: block;
+    position: relative;
+    filter: drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
+    transition: all 0.4s ease;
+    z-index: 1;
+	
+	    /* THE GLOW SYSTEM */
+    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
+    
+    transition: all 0.5s ease;
+}
 
 
 /* Ensure the box takes up the right amount of space */
@@ -951,6 +966,10 @@ h1.flicker {
 
 
 
+#my-photo:hover {
+    filter: grayscale(0.5) contrast(1.3) drop-shadow(0 0 50px var(--accent));
+    transform: scale(1.02);
+}
 
 
 
@@ -1137,7 +1156,10 @@ footer-socials {
     }
 
     /* Image styling */
- 
+    #my-photo {
+        max-width: 260px;
+        margin: 0 auto;
+    }
 
     /* Quote styling */
     .quote-box {
@@ -1421,158 +1443,21 @@ footer-socials {
 }
 
 
-.glass-panel {
-    background: rgba(10, 10, 10, 0.75); /* Dark transparency */
-    backdrop-filter: blur(12px); /* Blurs the Matrix code behind the box */
-    -webkit-backdrop-filter: blur(12px); /* Safari support */
-    border: 1px solid rgba(0, 123, 255, 0.2); /* Subtle blue glow */
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    transition: transform 0.3s ease, border 0.3s ease;
+/* Standard (Blue) is your default. These variables change in Offensive mode */
+:root {
+    --accent: #007bff; /* SOC Blue */
+    --bg-color: #050505;
 }
 
-/* Hover effect to make it feel "live" */
-.glass-panel:hover {
-    border: 1px solid rgba(0, 123, 255, 0.5);
-    transform: translateY(-5px);
+/* RED TEAM / OFFENSIVE MODE */
+body.offensive-theme {
+    --accent: #00ff41; /* Matrix/Hacker Green or Red #ff0000 */
+    filter: sepia(20%) hue-rotate(80deg) contrast(110%);
 }
 
-body {
-    color: #e0e0e0; /* Softer on the eyes than #fff */
-    line-height: 1.6; /* Better spacing for SOC reports/bios */
-}
-
-.highlight {
-    color: var(--accent); /* Your bright blue */
-    font-weight: 700;
-    text-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+body.offensive-theme .flicker {
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
 }
 
 
 
-
-/* Container that holds both text and image */
-.about-flex-container {
-    display: flex;
-    flex-direction: row;      /* Puts them side-by-side */
-    align-items: center;      /* Vertically aligns text and image */
-    justify-content: space-between; /* Pushes them to opposite sides */
-    gap: 50px;                /* Space between text and photo */
-    padding: 60px;            /* Padding inside the glass box */
-    margin-top: 50px;
-}
-
-.about-text {
-    flex: 1.5;                /* Gives text more room */
-    text-align: left;
-}
-
-.about-image {
-    flex: 1;                  /* Gives image its own column */
-    display: flex;
-    justify-content: center;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex !important;
-	margin-top: -100px !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: flex-start;
-    gap: 40px; /* Space between photo and proverb */
-    padding: 20px;
-}
-
-/* Make the photo larger */
-#my-photo {
-    width: 100%;
-    max-width: 480px; /* Increased from 380px to make it look bigger */
-    height: auto;
-    display: block;
-    position: relative;
-    filter: drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    transition: all 0.4s ease;
-    z-index: 1;
-	
-	    /* THE GLOW SYSTEM */
-    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    
-    transition: all 0.5s ease;
-}
-
-
-/* Mobile Responsiveness: Stack them vertically on phones */
-@media (max-width: 992px) {
-    .about-flex-container {
-        flex-direction: column; 
-        text-align: center;
-        padding: 30px;
-    }
-    .about-text {
-        text-align: center;
-    }
-    #hero-img {
-        max-width: 300px;     /* Smaller photo on mobile */
-    }
-}
-
-#my-photo:hover {
-    filter: grayscale(0.5) contrast(1.3) drop-shadow(0 0 50px var(--accent));
-    transform: scale(1.02);
-}
-
-/* Container that holds both text and image */
-.about-flex-container {
-    display: flex;
-    flex-direction: row;      /* Puts them side-by-side */
-    align-items: center;      /* Vertically aligns text and image */
-    justify-content: space-between; /* Pushes them to opposite sides */
-    gap: 50px;                /* Space between text and photo */
-    padding: 60px;            /* Padding inside the glass box */
-    margin-top: 50px;
-}
-
-.about-text {
-    flex: 1.5;                /* Gives text more room */
-    text-align: left;
-}
-
-.about-image {
-    flex: 1;                  /* Gives image its own column */
-    display: flex;
-    justify-content: center;
-}
-
-#hero-img {
-    width: 100%;
-    max-width: 420px;         /* Control the size of your photo here */
-    height: auto;
-    filter: drop-shadow(0 0 20px var(--accent)); /* Your blue glow */
-    border-radius: 10px;
-    /* Ensure no 'position: absolute' is here */
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px; /* Aligns with your navbar width */
-    margin: 0 auto; /* Centers the content */
-    padding: 0 60px;
-    gap: 60px;
-}
-
-.hero-text {
-    flex: 1.2; /* Gives text more room */
-    text-align: left;
-}
-
-
-
-/* Text Side Styling */
-.hero-text {
-    flex: 1; /* Takes up 50-60% of the space */
-}
