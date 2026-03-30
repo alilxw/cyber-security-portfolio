@@ -1475,7 +1475,7 @@ body {
 
 
 .hero-text-side {
-    flex: 1.5; /* Gives the text more room than the image */
+    flex: 1.2; /* Gives the text more room than the image */
     text-align: left;
 }
 
