@@ -1,29 +1,16 @@
-/* 1. Define the Variables */
 :root {
-    --bg-color: #0a0a0a;
-    --text-color: #ffffff;
+    --bg: #0b0b0b;
     --accent: #007bff;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --text: #e0e0e0;
+    --card-bg: #151515;
 }
 
-/* 2. Define the Light Overrides */
-body.light-theme {
-    --bg-color: #f0f2f5;
-    --text-color: #121212;
-    --accent: #0056b3;
-    --card-bg: #ffffff;
-}
-
-/* 3. Apply them to your elements */
 body {
-    background-color: var(--bg-color) !important;
-    color: var(--text-color);
-}
-
-.exp-card, .stat-card, .contact-window {
-    background-color: var(--card-bg) !important;
-    color: var(--text-color);
-    border: 1px solid var(--accent);
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+	
 }
 
 .nav-links {
