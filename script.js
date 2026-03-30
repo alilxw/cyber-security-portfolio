@@ -163,12 +163,22 @@ window.addEventListener('keydown', (e) => {
 
 
 function toggleMode() {
-    document.body.classList.toggle('offensive-theme');
-    // Change "Ali_soc.exe" to "Ali_root.sh"
+    const body = document.body;
     const brand = document.querySelector('.nav-brand span');
-    brand.innerText = document.body.classList.contains('offensive-theme') 
-        ? "Ali_root.sh is executing" 
-        : "Ali_soc.exe is running";
+    const modeText = document.getElementById('mode-text');
+    
+    // Toggle the class on the body
+    body.classList.toggle('offensive-theme');
+
+    if (body.classList.contains('offensive-theme')) {
+        brand.innerText = "Ali_root.sh is executing";
+        modeText.innerText = "OFFENSIVE_MODE";
+        console.log("RED_TEAM_ACTIVE: System compromised.");
+    } else {
+        brand.innerText = "Ali_soc.exe is running";
+        modeText.innerText = "DEFENSIVE_MODE";
+        console.log("BLUE_TEAM_ACTIVE: System secured.");
+    }
 }
 
 
