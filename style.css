@@ -1155,10 +1155,7 @@ footer-socials {
     }
 
     /* Image styling */
-    #my-photo {
-        max-width: 260px;
-        margin: 0 auto;
-    }
+ 
 
     /* Quote styling */
     .quote-box {
@@ -1497,12 +1494,14 @@ body {
 }
 
 #hero-img {
-    width: 100%;
-    max-width: 420px;         /* Control the size of your photo here */
-    height: auto;
-    filter: drop-shadow(0 0 20px var(--accent)); /* Your blue glow */
-    border-radius: 10px;
-    /* Ensure no 'position: absolute' is here */
+flex: 1;
+    display: flex !important;
+	margin-top: -100px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    gap: 40px; /* Space between photo and proverb */
+    padding: 20px;
 }
 
 /* Mobile Responsiveness: Stack them vertically on phones */
