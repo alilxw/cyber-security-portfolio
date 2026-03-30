@@ -1470,3 +1470,46 @@ body {
     font-weight: 700;
     text-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
 }
+
+
+
+/* The Main Container Fix */
+.hero-flex-container {
+    display: flex;
+    align-items: center; /* Vertically centers text and image */
+    justify-content: space-between; /* Pushes text left and image right */
+    gap: 50px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 60px auto; /* Centers the whole glass box on the page */
+}
+
+.hero-text-side {
+    flex: 1.5; /* Gives the text more room than the image */
+    text-align: left;
+}
+
+.hero-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#my-photo {
+    width: 100%;
+    max-width: 400px; /* Limits size so it doesn't overwhelm the text */
+    filter: drop-shadow(0 0 20px var(--accent)); /* Keeps your blue glow */
+    border-radius: 15px;
+}
+
+/* Responsive Fix: If the screen is small (Phone), stack them */
+@media (max-width: 992px) {
+    .hero-flex-container {
+        flex-direction: column-reverse; /* Puts text under the photo on mobile */
+        text-align: center;
+        gap: 30px;
+    }
+    .hero-text-side {
+        text-align: center;
+    }
+}
