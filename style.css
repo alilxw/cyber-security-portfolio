@@ -1,32 +1,29 @@
+/* 1. Define the Variables */
 :root {
-    /* DARK THEME (Default) */
     --bg-color: #0a0a0a;
     --text-color: #ffffff;
-    --accent: #007bff; /* SOC Blue */
+    --accent: #007bff;
     --card-bg: rgba(255, 255, 255, 0.05);
-    --border: rgba(0, 123, 255, 0.3);
 }
 
+/* 2. Define the Light Overrides */
 body.light-theme {
-    /* LIGHT THEME (Clean/Documentation) */
-    --bg-color: #f4f7f6;
-    --text-color: #1a1a1a;
-    --accent: #0056b3; 
+    --bg-color: #f0f2f5;
+    --text-color: #121212;
+    --accent: #0056b3;
     --card-bg: #ffffff;
-    --border: rgba(0, 0, 0, 0.1);
 }
 
+/* 3. Apply them to your elements */
 body {
-    background-color: var(--bg-color);
+    background-color: var(--bg-color) !important;
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-/* Update your existing components to use these variables */
 .exp-card, .stat-card, .contact-window {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background-color: var(--card-bg) !important;
     color: var(--text-color);
+    border: 1px solid var(--accent);
 }
 
 .nav-links {
