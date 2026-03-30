@@ -1495,31 +1495,3 @@ body {
     justify-content: center;
 }
 
-#my-photo {
-    width: 100%;
-    max-width: 480px; /* Increased from 380px to make it look bigger */
-    height: auto;
-    display: block;
-    position: relative;
-    filter: drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    transition: all 0.4s ease;
-    z-index: 1;
-	
-	    /* THE GLOW SYSTEM */
-    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    
-    transition: all 0.5s ease;
-}
-
-
-/* Responsive Fix: If the screen is small (Phone), stack them */
-@media (max-width: 488px) {
-    .hero-flex-container {
-        flex-direction: column-reverse; /* Puts text under the photo on mobile */
-        text-align: center;
-        gap: 30px;
-    }
-    .hero-text-side {
-        text-align: center;
-    }
-}
