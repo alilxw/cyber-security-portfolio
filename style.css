@@ -1469,3 +1469,6 @@ footer-socials {
     border-radius: 4px;
 }
 
+body.light-theme #matrix-bg {
+    display: none; /* Hides the matrix in light mode for better readability */
+}
