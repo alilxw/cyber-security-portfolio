@@ -162,6 +162,15 @@ window.addEventListener('keydown', (e) => {
 });
 
 
+function toggleMode() {
+    document.body.classList.toggle('offensive-theme');
+    // Change "Ali_soc.exe" to "Ali_root.sh"
+    const brand = document.querySelector('.nav-brand span');
+    brand.innerText = document.body.classList.contains('offensive-theme') 
+        ? "Ali_root.sh is executing" 
+        : "Ali_soc.exe is running";
+}
+
 
 
 
