@@ -1442,20 +1442,31 @@ footer-socials {
 }
 
 
-/* Standard (Blue) is your default. These variables change in Offensive mode */
-.theme-toggle {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.8rem;
-    color: var(--accent);
-    padding: 5px 10px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
+.glass-panel {
+    background: rgba(10, 10, 10, 0.75); /* Dark transparency */
+    backdrop-filter: blur(12px); /* Blurs the Matrix code behind the box */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    border: 1px solid rgba(0, 123, 255, 0.2); /* Subtle blue glow */
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, border 0.3s ease;
 }
 
-body.light-theme #matrix-bg {
-    display: none; /* Hides the matrix in light mode for better readability */
+/* Hover effect to make it feel "live" */
+.glass-panel:hover {
+    border: 1px solid rgba(0, 123, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+body {
+    color: #e0e0e0; /* Softer on the eyes than #fff */
+    line-height: 1.6; /* Better spacing for SOC reports/bios */
+}
+
+.highlight {
+    color: var(--accent); /* Your bright blue */
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
 }
