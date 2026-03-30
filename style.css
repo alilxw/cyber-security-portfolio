@@ -1473,16 +1473,6 @@ body {
 
 
 
-/* The Main Container Fix */
-.hero-flex-container {
-    display: flex;
-    align-items: center; /* Vertically centers text and image */
-    justify-content: space-between; /* Pushes text left and image right */
-    gap: 50px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: 60px auto; /* Centers the whole glass box on the page */
-}
 
 .hero-text-side {
     flex: 1.5; /* Gives the text more room than the image */
