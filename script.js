@@ -170,7 +170,7 @@ new Chart(ctx, {
         labels: ['SIEM/Splunk', 'Pentesting', 'Network Security', 'Linux Admin', 'Incident Response', 'Threat Hunting'],
         datasets: [{
             label: 'Operational Proficiency',
-            data: [95, 75, 90, 85, 80, 70],
+            data: [70, 60, 65, 70, 50, 50],
             backgroundColor: 'rgba(0, 123, 255, 0.2)',
             borderColor: '#007bff',
             pointBackgroundColor: '#007bff'
