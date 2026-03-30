@@ -1,18 +1,33 @@
 :root {
-    --bg: #0b0b0b;
-    --accent: #007bff;
-    --text: #e0e0e0;
-    --card-bg: #151515;
+    /* DARK THEME (Default) */
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent: #007bff; /* SOC Blue */
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border: rgba(0, 123, 255, 0.3);
+}
+
+body.light-theme {
+    /* LIGHT THEME (Clean/Documentation) */
+    --bg-color: #f4f7f6;
+    --text-color: #1a1a1a;
+    --accent: #0056b3; 
+    --card-bg: #ffffff;
+    --border: rgba(0, 0, 0, 0.1);
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-	
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
+/* Update your existing components to use these variables */
+.exp-card, .stat-card, .contact-window {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-color);
+}
 
 .nav-links {
     position: relative; /* Essential for the indicator to align correctly */
@@ -1444,29 +1459,16 @@ footer-socials {
 
 
 /* Standard (Blue) is your default. These variables change in Offensive mode */
-:root {
-    --accent: #007bff; /* SOC Blue */
-    --bg-color: #050505;
+.theme-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
 }
-
-/* RED TEAM / OFFENSIVE MODE */
-body.offensive-theme {
-    --accent: #00ff41; /* Matrix/Hacker Green or Red #ff0000 */
-    filter: sepia(20%) hue-rotate(80deg) contrast(110%);
-}
-
-body.offensive-theme .flicker {
-    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
-}
-
-/* Toggle Switch Styling */
-.theme-switch-wrapper { display: flex; align-items: center; gap: 10px; }
-.theme-switch { display: inline-block; height: 20px; position: relative; width: 40px; }
-.theme-switch input { display:none; }
-.slider { background-color: #333; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
-.slider:before { background-color: #fff; bottom: 4px; content: ""; height: 12px; left: 4px; position: absolute; transition: .4s; width: 12px; border-radius: 50%; }
-input:checked + .slider { background-color: var(--accent); }
-input:checked + .slider:before { transform: translateX(20px); }
-#mode-text { font-family: 'Fira Code', monospace; font-size: 0.7rem; color: var(--accent); }
-
 
