@@ -1461,3 +1461,13 @@ body.offensive-theme .flicker {
 
 
 
+body {
+    color: #e0e0e0; /* Softer on the eyes than #fff */
+    line-height: 1.6; /* Better spacing for SOC reports/bios */
+}
+
+.highlight {
+    color: var(--accent); /* Your bright blue */
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
