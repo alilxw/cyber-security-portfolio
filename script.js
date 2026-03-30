@@ -163,22 +163,5 @@ window.addEventListener('keydown', (e) => {
 
 
 
-const ctx = document.getElementById('skillRadar');
-new Chart(ctx, {
-    type: 'radar',
-    data: {
-        labels: ['SIEM/Splunk', 'Pentesting', 'Network Security', 'Linux Admin', 'Incident Response', 'Threat Hunting'],
-        datasets: [{
-            label: 'Operational Proficiency',
-            data: [70, 60, 65, 70, 50, 50],
-            backgroundColor: 'rgba(0, 123, 255, 0.2)',
-            borderColor: '#007bff',
-            pointBackgroundColor: '#007bff'
-        }]
-    },
-    options: {
-        scales: { r: { grid: { color: '#333' }, angleLines: { color: '#333' }, ticks: { display: false } } }
-    }
-});
 
 
