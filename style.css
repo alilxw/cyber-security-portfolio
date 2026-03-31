@@ -1478,3 +1478,70 @@ body.offensive-theme .flicker {
     border: 1px solid rgba(0, 123, 255, 0.5);
     transform: translateY(-5px);
 }
+
+
+
+.topology-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+    flex-wrap: wrap;
+}
+
+.topo-node {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 123, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.topo-node:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+    transform: translateY(-5px);
+}
+
+.node-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.topo-node h4 {
+    font-family: 'Fira Code', monospace;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.topo-node ul {
+    list-style: none;
+    font-size: 0.8rem;
+    color: #bbb;
+    padding: 0;
+}
+
+/* The Firewall Connector */
+.topo-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ff4d4d; /* Red for the firewall */
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.firewall-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+/* Color Coding for Zones */
+.red-zone { border-color: #ff4d4d; }
+.blue-zone { border-color: #007bff; }
+.green-zone { border-color: #27c93f; }
