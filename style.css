@@ -1545,3 +1545,13 @@ body.offensive-theme .flicker {
 .red-zone { border-color: #ff4d4d; }
 .blue-zone { border-color: #007bff; }
 .green-zone { border-color: #27c93f; }
+
+
+.tech-insight {
+    background: rgba(0, 123, 255, 0.1);
+    border-left: 4px solid var(--accent);
+    padding: 15px;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    font-style: italic;
+}
