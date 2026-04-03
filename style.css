@@ -1555,3 +1555,65 @@ body.offensive-theme .flicker {
     margin-top: 20px;
     font-style: italic;
 }
+
+
+
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #050505; /* Pure dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Stays above everything else */
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader-content {
+    width: 300px;
+    text-align: center;
+}
+
+.loader-logo h1 {
+    font-family: 'Fira Code', monospace;
+    color: var(--accent);
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+    transition: width 0.1s linear;
+}
+
+.loader-status {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    opacity: 0.8;
+}
+
+/* Class to trigger the fade out */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
