@@ -290,7 +290,7 @@ window.addEventListener('load', () => {
         let msgIndex = Math.floor((progress / 100) * statusMessages.length);
         statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
         
-    }, 120); // Speed of the loader function
+    }, 180); // Speed of the loader function
 });
 
 
