@@ -18,20 +18,23 @@
     <body>
 		<div id="loader-wrapper">
     <div class="loader-content">
+        
         <div class="logo-glitch-wrapper">
             <img src="assets/my_logo.png" alt="Logo" class="glitch-main">
             <img src="assets/my_logo.png" alt="Logo-shadow1" class="glitch-shadow-1">
             <img src="assets/my_logo.png" alt="Logo-shadow2" class="glitch-shadow-2">
         </div>
         
-        <div class="progress-container">
-            <div class="progress-bar" id="loader-bar"></div>
+        <div class="progress-section">
+            <div class="progress-container">
+                <div class="progress-bar" id="loader-bar"></div>
+            </div>
+            <div class="loader-status">
+                <span id="status-text">INITIALIZING_BOOT...</span>
+                <span id="percent">0%</span>
+            </div>
         </div>
-        
-        <div class="loader-status">
-            <span id="status-text">INITIALIZING_BOOT...</span>
-            <span id="percent">0%</span>
-        </div>
+
     </div>
 </div>
     <canvas id="matrix-bg"></canvas>
