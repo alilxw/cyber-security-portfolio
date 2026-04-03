@@ -11,6 +11,7 @@ body {
     background-attachment: fixed; /* Keeps the glow centered while you scroll */
 	font-family: 'Inter', sans-serif;
     margin: 0;
+	color: white;
 }
 
 /* Ensure the Matrix canvas remains transparent to show the gradient */
@@ -1550,12 +1551,12 @@ body.offensive-theme .flicker {
 #loader-wrapper {
     position: fixed;
     inset: 0;
-    background: #050505;
+    /* VIGNETTE GLOW: Deep Navy to Black */
+    background: radial-gradient(circle at center, #071324 0%, #050505 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999;
-    /* SMOOTHER FADE: Increased to 1.2s and added a cubic-bezier for a "pro" feel */
     transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
                 visibility 1.2s,
                 transform 1.2s ease-in-out;
@@ -1568,11 +1569,14 @@ body.offensive-theme .flicker {
     transform: scale(1.1); /* Subtle "zoom out" effect as it fades */
 }
 
+/* Ensure the loader content (text/bars) sits naturally on the glow */
 .loader-content {
     display: flex;
-    flex-direction: column; /* This stacks Logo on top of Text */
+    flex-direction: column;
     align-items: center;
-    width: 400px; /* Adjust based on your logo width */
+    z-index: 100000;
+    /* Optional: subtle shadow to lift the text off the gradient */
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
 }
 
 /* THE LOGO WRAPPER */
