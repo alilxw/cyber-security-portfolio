@@ -209,33 +209,40 @@ setTimeout(() => {
 
 
 
-function showSection(sectionId) {
-    const sections = document.querySelectorAll('.content-section');
-    const targetSection = document.getElementById(sectionId);
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-wrapper');
+    const bar = document.getElementById('loader-bar');
+    const percentText = document.getElementById('percent');
+    const statusText = document.getElementById('status-text');
+    
+    let progress = 0;
+    const statusMessages = [
+        "MTU_VERIFYING...",
+        "SSL_HANDSHAKE_START...",
+        "DECRYPTING_RSA_KEYS...",
+        "BYPASSING_FIREWALL...",
+        "ALI_SOC_OS_LOADED"
+    ];
 
-    // 1. Hide all current sections
-    sections.forEach(section => {
-        section.classList.remove('show'); // Triggers fade out
-        section.style.display = 'none';
-        section.classList.remove('active');
-    });
-
-    // 2. Prepare the target section
-    targetSection.style.display = 'block';
-    targetSection.classList.add('active');
-
-    // 3. Trigger the smooth animation (The "Tick")
-    // This small timeout ensures the browser sees the display change before animating
-    setTimeout(() => {
-        targetSection.classList.add('show');
-    }, 50);
-
-    // 4. Update Nav Links (Optional: adds a 'active' look to your buttons)
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active-link');
-        if(link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active-link');
+    const loadTimer = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 1; // Random increment for effect
+        
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(loadTimer);
+            setTimeout(() => {
+                loader.classList.add('loader-hidden'); // Fade out
+            }, 800); 
         }
-    });
-}
+
+        bar.style.width = progress + '%';
+        percentText.innerText = progress + '%';
+        
+        // Cycle through status messages
+        let msgIndex = Math.floor((progress / 100) * statusMessages.length);
+        statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
+        
+    }, 120); // Speed of the loader function
+});
+
 
