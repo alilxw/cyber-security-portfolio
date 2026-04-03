@@ -1559,19 +1559,8 @@ body.offensive-theme .flicker {
 
 
 
-#loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #050505; /* Pure dark background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000; /* Stays above everything else */
-    transition: opacity 0.8s ease, visibility 0.8s;
-}
+
+
 
 #loader-wrapper {
     position: fixed;
@@ -1581,29 +1570,67 @@ body.offensive-theme .flicker {
     justify-content: center;
     align-items: center;
     z-index: 99999;
-    transition: opacity 0.8s ease, visibility 0.8s;
 }
 
-/* LOGO GLITCH CONTAINER */
-.logo-glitch-wrapper {
-    position: relative;
-    width: 250px; /* Adjust this based on your logo size */
-    height: 100px; /* Adjust this to fit your logo */
-    margin: 0 auto 30px;
+.loader-content {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* This stacks Logo on top of Text */
     align-items: center;
+    width: 400px; /* Adjust based on your logo width */
 }
 
-/* All images share these base rules */
+/* THE LOGO WRAPPER */
+.logo-glitch-wrapper {
+    position: relative; /* Keep this relative so the glitch shadows stay inside */
+    width: 280px;      /* Match your logo's width */
+    height: 280px;     /* Match your logo's height */
+    margin-bottom: 30px; /* Creates the gap so text isn't behind it */
+}
+
 .logo-glitch-wrapper img {
-    position: absolute;
+    position: absolute; /* Shadows need this to overlap the main logo */
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    object-fit: contain; /* Ensures logo fits inside the box */
+    height: 100%;
+    object-fit: contain;
 }
+
+/* THE TEXT/BAR AREA */
+.progress-section {
+    width: 100%;
+}
+
+.progress-container {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #007bff; /* Your accent color */
+    box-shadow: 0 0 15px #007bff;
+}
+
+.loader-status {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: #007bff;
+}
+
+
+
+
+
+
+
+
 
 /* THE GLITCH BEHAVIOR */
 
