@@ -1548,26 +1548,9 @@ body.offensive-theme .flicker {
 
 
 
-#loader-wrapper {
-    position: fixed;
-    inset: 0;
-    /* VIGNETTE GLOW: Deep Navy to Black */
-    background: radial-gradient(circle at center, #071324 0%, #050505 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
-                visibility 1.2s,
-                transform 1.2s ease-in-out;
-}
 
-/* When this class is added, the loader fades AND shrinks slightly */
-.loader-hidden {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1); /* Subtle "zoom out" effect as it fades */
-}
+
+
 
 /* Ensure the loader content (text/bars) sits naturally on the glow */
 .loader-content {
@@ -1864,16 +1847,38 @@ body.loaded #main-content {
 
 
 
-/* The 'Power On' Flash State */
-#loader-wrapper.flashing {
-    /* Slightly brighter and wider center glow */
-    background: radial-gradient(circle at center, #1e4b8a 0%, #050505 100%);
-    transition: background 0.5s ease-in-out;
+:root {
+    /* Define the two states as variables */
+    --loader-bg-inner: #071324;
+    --loader-bg-outer: #050505;
 }
 
-/* Ensure the hidden state has a transform for a "zoom-out" feel */
+#loader-wrapper {
+    position: fixed;
+    inset: 0;
+    /* Use the variables here */
+    background: radial-gradient(circle at center, var(--loader-bg-inner) 0%, var(--loader-bg-outer) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    
+    /* Crucial: transition the background property specifically */
+    transition: 
+        background 0.8s ease-in-out, 
+        opacity 1s ease-in-out, 
+        transform 1s ease-in-out,
+        visibility 1s;
+}
+
+/* The Flash State: We only change the variable values */
+#loader-wrapper.flashing {
+    --loader-bg-inner: #1e4b8a; /* Brighter blue */
+    --loader-bg-outer: #081a33; /* Slightly lighter edge */
+}
+
 .loader-hidden {
     opacity: 0;
     visibility: hidden;
-    transform: scale(1.1); /* Slight zoom as it fades */
+    transform: scale(1.05); /* Soft zoom-in */
 }
