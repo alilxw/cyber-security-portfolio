@@ -178,14 +178,14 @@ window.addEventListener('load', () => {
     ];
 
     const loadTimer = setInterval(() => {
-        progress += Math.floor(Math.random() * 15) + 1; // Random increment for effect
+        progress += Math.floor(Math.random() * 3) + 1; // Random increment for effect
         
         if (progress >= 100) {
             progress = 100;
             clearInterval(loadTimer);
             setTimeout(() => {
                 loader.classList.add('loader-hidden'); // Fade out
-            }, 800); 
+            }, 1200); 
         }
 
         bar.style.width = progress + '%';
@@ -195,9 +195,15 @@ window.addEventListener('load', () => {
         let msgIndex = Math.floor((progress / 100) * statusMessages.length);
         statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
         
-    }, 120); // Speed of the loader function
+    }, 180); // Speed of the loader function
 });
 
+
+// ... inside the if (progress >= 100) block
+setTimeout(() => {
+    loader.classList.add('loader-hidden');
+    document.body.classList.add('loaded'); // This triggers the main content fade-in
+}, 1000);
 
 
 
