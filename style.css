@@ -1864,3 +1864,16 @@ body.loaded #main-content {
 
 
 
+/* The 'Power On' Flash State */
+#loader-wrapper.flashing {
+    /* Slightly brighter and wider center glow */
+    background: radial-gradient(circle at center, #1e4b8a 0%, #050505 100%);
+    transition: background 0.5s ease-in-out;
+}
+
+/* Ensure the hidden state has a transform for a "zoom-out" feel */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1); /* Slight zoom as it fades */
+}
