@@ -209,3 +209,33 @@ setTimeout(() => {
 
 
 
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    const targetSection = document.getElementById(sectionId);
+
+    // 1. Hide all current sections
+    sections.forEach(section => {
+        section.classList.remove('show'); // Triggers fade out
+        section.style.display = 'none';
+        section.classList.remove('active');
+    });
+
+    // 2. Prepare the target section
+    targetSection.style.display = 'block';
+    targetSection.classList.add('active');
+
+    // 3. Trigger the smooth animation (The "Tick")
+    // This small timeout ensures the browser sees the display change before animating
+    setTimeout(() => {
+        targetSection.classList.add('show');
+    }, 50);
+
+    // 4. Update Nav Links (Optional: adds a 'active' look to your buttons)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active-link');
+        if(link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active-link');
+        }
+    });
+}
+
