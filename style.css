@@ -1786,14 +1786,16 @@ body.loaded #main-content {
     left: 3px;
     text-shadow: -2px 0 #ff00c1;
     clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 5s infinite linear alternate-reverse;
+    /* Changed from 5s to 0.4s for high-speed jitter */
+    animation: glitch-anim 0.4s infinite linear alternate-reverse;
 }
 
 .loader-name.glitch::after {
     left: -3px;
     text-shadow: -2px 0 #00fff9;
     clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim2 5s infinite linear alternate-reverse;
+    /* Changed from 5s to 0.4s */
+    animation: glitch-anim2 0.4s infinite linear alternate-reverse;
 }
 
 /* HIGHLIGHTED TYPEWRITER */
