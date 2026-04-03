@@ -1758,8 +1758,8 @@ footer {
 .footer-socials {
     display: flex;
     justify-content: center;
-    gap: 30px; 
-    margin-top: 20px;
+    gap: 10px; 
+    margin-top: 10px;
 }
 
 .footer-socials a i {
