@@ -185,7 +185,7 @@ window.addEventListener('load', () => {
             clearInterval(loadTimer);
             setTimeout(() => {
                 loader.classList.add('loader-hidden'); // Fade out
-            }, 1200); 
+            }, 1000); 
         }
 
         bar.style.width = progress + '%';
@@ -195,7 +195,7 @@ window.addEventListener('load', () => {
         let msgIndex = Math.floor((progress / 100) * statusMessages.length);
         statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
         
-    }, 180); // Speed of the loader function
+    }, 140); // Speed of the loader function
 });
 
 
@@ -203,7 +203,7 @@ window.addEventListener('load', () => {
 setTimeout(() => {
     loader.classList.add('loader-hidden');
     document.body.classList.add('loaded'); // This triggers the main content fade-in
-}, 1000);
+}, 800);
 
 
 
