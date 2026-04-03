@@ -1710,39 +1710,45 @@ body.loaded #main-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 15px;
-    /* Changed to transparent background */
-    background: rgba(5, 5, 5, 0.5); 
-    /* Glass effect blur */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    
+    /* 1. INCREASED PADDING: Added 80px to the bottom for more space */
+    padding: 20px 15px 80px 15px; 
+    
+    /* 2. MORE TRANSPARENT: Lowered alpha from 0.5 to 0.2 */
+    background: rgba(5, 5, 5, 0.2); 
+    
+    /* 3. SUBTLE BLUR: Reduced from 10px to 6px for a clearer look */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    
     border-top: 1px solid rgba(0, 123, 255, 0.3);
     font-family: 'Fira Code', monospace;
     font-size: 0.75rem;
     gap: 15px;
+    width: 100%;
 }
-
-
 
 .footer-socials {
     display: flex;
     justify-content: center;
-    gap: 10px; 
-    margin-top: 10px;
-   background: rgba(5, 5, 5, 0.5); 
-    /* Glass effect blur */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.75rem;
-   
+    gap: 30px; 
+    margin-top: 20px;
+    
+    /* 4. REMOVED REDUNDANT BACKGROUND: 
+       Removing the background here stops it from 'double-darkening' the footer */
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
+/* Ensure the icons still look sharp on the transparent background */
 .footer-socials a i {
-    font-size: 2rem !important; 
+    font-size: 2rem !important;
     color: var(--text);
     transition: all 0.3s ease;
 }
+
+
 
 /* Cyber Glow Hover Effect remains the same */
 .footer-socials a:hover i {
