@@ -1,4 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
+	// --- LOADER TYPEWRITER LOGIC ---
+const loaderText = document.getElementById('loader-typewriter');
+const loaderContainer = document.querySelector('.loader-typewriter-container');
+const loaderPhrases = ["SOC Analyst", "Cyber Security Operations", "Information Systems Security Manager"];
+let lPIdx = 0, lCIdx = 0, lIsDeleting = false;
+
+function loaderTypeEffect() {
+    const current = loaderPhrases[lPIdx];
+    
+    if (lIsDeleting) {
+        loaderText.textContent = current.substring(0, lCIdx - 1);
+        lCIdx--;
+    } else {
+        loaderText.textContent = current.substring(0, lCIdx + 1);
+        lCIdx++;
+    }
+
+    let typeSpeed = lIsDeleting ? 50 : 100;
+
+    if (!lIsDeleting && lCIdx === current.length) {
+        lIsDeleting = true;
+        typeSpeed = 1500; // Pause at end of phrase
+    } else if (lIsDeleting && lCIdx === 0) {
+        lIsDeleting = false;
+        lPIdx = (lPIdx + 1) % loaderPhrases.length;
+        typeSpeed = 200;
+        
+        // TRIGGER SWITCH GLITCH
+        loaderContainer.classList.add('typewriter-glitch');
+        setTimeout(() => loaderContainer.classList.remove('typewriter-glitch'), 300);
+    }
+
+    setTimeout(loaderTypeEffect, typeSpeed);
+}
+
+// Start the typewriter as soon as the loader appears
+loaderTypeEffect();
+
+
+
+
+
+
+
+
+
+
+	
     const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('.content-section');
     const indicator = document.querySelector('.move-indicator');
