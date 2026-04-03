@@ -1847,38 +1847,22 @@ body.loaded #main-content {
 
 
 
-:root {
-    /* Define the two states as variables */
-    --loader-bg-inner: #071324;
-    --loader-bg-outer: #050505;
-}
-
 #loader-wrapper {
     position: fixed;
     inset: 0;
-    /* Use the variables here */
-    background: radial-gradient(circle at center, var(--loader-bg-inner) 0%, var(--loader-bg-outer) 100%);
+    /* Back to your preferred Vignette Glow */
+    background: radial-gradient(circle at center, #0a192f 0%, #050505 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999;
     
-    /* Crucial: transition the background property specifically */
-    transition: 
-        background 0.8s ease-in-out, 
-        opacity 1s ease-in-out, 
-        transform 1s ease-in-out,
-        visibility 1s;
-}
-
-/* The Flash State: We only change the variable values */
-#loader-wrapper.flashing {
-    --loader-bg-inner: #1e4b8a; /* Brighter blue */
-    --loader-bg-outer: #081a33; /* Slightly lighter edge */
+    /* Simple, clean fade transition */
+    transition: opacity 0.8s ease, visibility 0.8s;
 }
 
 .loader-hidden {
     opacity: 0;
     visibility: hidden;
-    transform: scale(1.05); /* Soft zoom-in */
+    /* Removed the scale/zoom to keep it simple */
 }
