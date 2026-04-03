@@ -1002,6 +1002,37 @@ h1.flicker {
     box-shadow: 0 0 10px var(--accent);
 }
 
+
+
+/* 1. Target ONLY the horizontal scrollbar height */
+::-webkit-scrollbar:horizontal {
+    height: 4px; /* Makes it a very thin line at the bottom */
+}
+
+/* 2. Style the horizontal track */
+::-webkit-scrollbar-track:horizontal {
+    background: rgba(5, 5, 5, 0.1); /* Nearly invisible */
+}
+
+/* 3. Style the horizontal thumb (the moving part) */
+::-webkit-scrollbar-thumb:horizontal {
+    background: #007bff; /* Matches your Ali_soc accent */
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.8); /* Gives it a neon glow */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .navbar {
