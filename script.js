@@ -226,71 +226,25 @@ window.addEventListener('load', () => {
     ];
 
     const loadTimer = setInterval(() => {
-        progress += Math.floor(Math.random() * 3) + 1; // Random increment for effect
+        // SMALLER INCREMENTS: 1 to 4% instead of 1 to 15%
+        progress += Math.floor(Math.random() * 3) + 1; 
         
         if (progress >= 100) {
             progress = 100;
             clearInterval(loadTimer);
-            setTimeout(() => {
-                loader.classList.add('loader-hidden'); // Fade out
-            }, 900); 
-        }
-
-        bar.style.width = progress + '%';
-        percentText.innerText = progress + '%';
-        
-        // Cycle through status messages
-        let msgIndex = Math.floor((progress / 100) * statusMessages.length);
-        statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
-        
-    }, 500); // Speed of the loader function
-});
-
-
-// ... inside the if (progress >= 100) block
-setTimeout(() => {
-    loader.classList.add('loader-hidden');
-    document.body.classList.add('loaded'); // This triggers the main content fade-in
-}, 400);
-
-
-
-
-
-window.addEventListener('load', () => {
-    const loader = document.getElementById('loader-wrapper');
-    const bar = document.getElementById('loader-bar');
-    const percentText = document.getElementById('percent');
-    const statusText = document.getElementById('status-text');
-    
-    let progress = 0;
-    const statusMessages = [
-        "MTU_VERIFYING...",
-        "SSL_HANDSHAKE_START...",
-        "DECRYPTING_RSA_KEYS...",
-        "BYPASSING_FIREWALL...",
-        "ALI_SOC_OS_LOADED"
-    ];
-
-    const loadTimer = setInterval(() => {
-        progress += Math.floor(Math.random() * 15) + 1;
-        
-        if (progress >= 100) {
-            progress = 100;
-            clearInterval(loadTimer);
+            
+            // DELIBERATE PAUSE: Wait 1 second at 100% so the user sees "LOADED"
             setTimeout(() => {
                 loader.classList.add('loader-hidden');
-            }, 800); // Small delay at 100% so they see the final status
+            }, 1000); 
         }
 
         bar.style.width = progress + '%';
         percentText.innerText = progress + '%';
         
-        // Cycle through status messages
         let msgIndex = Math.floor((progress / 100) * statusMessages.length);
         statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
         
-    }, 120);
+    }, 180); // SLOWER TICK: 180ms instead of 120ms
 });
-
 
