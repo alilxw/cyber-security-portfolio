@@ -229,23 +229,18 @@ window.addEventListener('load', () => {
         // SMALLER INCREMENTS: 1 to 4% instead of 1 to 15%
         progress += Math.floor(Math.random() * 9) + 1; 
         
-   if (progress >= 100) {
+ if (progress >= 100) {
     progress = 100;
     clearInterval(loadTimer);
     
-    // 1. Start the color transition (The Flash)
-    loader.classList.add('flashing');
+    // Immediate fade out once finished
+    loader.classList.add('loader-hidden');
+    document.body.classList.add('loaded');
     
-    // 2. Wait for the color to reach its brightest point (0.6s)
-    setTimeout(() => {
-        // 3. Now start the smooth fade-out
-        loader.classList.add('loader-hidden');
-        document.body.classList.add('loaded');
-        
-        if (typeof showSection === "function") {
-            showSection('about-me');
-        }
-    }, 600); 
+    // Start the first section animation
+    if (typeof showSection === "function") {
+        showSection('about-me');
+    }
 }
         bar.style.width = progress + '%';
         percentText.innerText = progress + '%';
