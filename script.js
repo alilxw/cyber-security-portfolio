@@ -172,9 +172,9 @@ window.addEventListener('load', () => {
     const stages = [
         "MOUNTING_DRIVES...",
         "LOADING_KERNEL...",
-        "ESTABLISHING_VPN...",
-        "DECRYPTING_BIO...",
-        "ACCESS_GRANTED"
+        "ESTABLISHING_SECURE_CONNECTION...",
+        "DECRYPTING_CREDENTIALS...",
+        "ACCESS_GRANTED !"
     ];
 
     const interval = setInterval(() => {
