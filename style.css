@@ -1691,7 +1691,16 @@ body.loaded #main-content {
 .content-section.show .exp-card:nth-child(3) { transition-delay: 0.3s; }
 
 
-
+.move-indicator {
+    position: absolute;
+    bottom: -5px;
+    height: 2px;
+    background-color: var(--accent);
+    /* cubic-bezier makes the movement feel more "robotic" and high-tech */
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 0 15px var(--accent);
+    pointer-events: none;
+}
 
 
 
