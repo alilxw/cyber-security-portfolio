@@ -227,7 +227,7 @@ window.addEventListener('load', () => {
 
     const loadTimer = setInterval(() => {
         // SMALLER INCREMENTS: 1 to 4% instead of 1 to 15%
-        progress += Math.floor(Math.random() * 3) + 1; 
+        progress += Math.floor(Math.random() * 9) + 1; 
         
         if (progress >= 100) {
             progress = 100;
