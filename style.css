@@ -1856,34 +1856,5 @@ body.loaded #main-content {
     color: #007bff !important;
 }
 
-@keyframes text-glitch {
-    0% { transform: translate(2px, 0); }
-    50% { transform: translate(-2px, 0); filter: hue-rotate(90deg); }
-    100% { transform: translate(0, 0); }
-}
-
-/* THE MOTION FOR THE RED SHADOW */
-@keyframes glitch-anim {
-  0% { clip: rect(30px, 9999px, 10px, 0); transform: skew(0.3deg); }
-  5% { clip: rect(92px, 9999px, 86px, 0); transform: skew(0.8deg); }
-  10% { clip: rect(15px, 9999px, 95px, 0); transform: skew(0.1deg); }
-  15% { clip: rect(61px, 9999px, 20px, 0); transform: skew(0.4deg); }
-  20% { clip: rect(2px, 9999px, 98px, 0); transform: skew(0.9deg); }
-  25% { clip: rect(77px, 9999px, 43px, 0); transform: skew(0.2deg); }
-  30% { clip: rect(5px, 9999px, 22px, 0); transform: skew(0.6deg); }
-  100% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0.3deg); }
-}
-
-/* THE MOTION FOR THE CYAN SHADOW */
-@keyframes glitch-anim2 {
-  0% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0.3deg); }
-  5% { clip: rect(5px, 9999px, 22px, 0); transform: skew(0.6deg); }
-  10% { clip: rect(77px, 9999px, 43px, 0); transform: skew(0.2deg); }
-  15% { clip: rect(2px, 9999px, 98px, 0); transform: skew(0.9deg); }
-  20% { clip: rect(61px, 9999px, 20px, 0); transform: skew(0.4deg); }
-  25% { clip: rect(15px, 9999px, 95px, 0); transform: skew(0.1deg); }
-  30% { clip: rect(92px, 9999px, 86px, 0); transform: skew(0.8deg); }
-  100% { clip: rect(30px, 9999px, 10px, 0); transform: skew(0.3deg); }
-}
 
 
