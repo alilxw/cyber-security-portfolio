@@ -229,18 +229,23 @@ window.addEventListener('load', () => {
         // SMALLER INCREMENTS: 1 to 4% instead of 1 to 15%
         progress += Math.floor(Math.random() * 9) + 1; 
         
-        if (progress >= 100) {
+   if (progress >= 100) {
     progress = 100;
     clearInterval(loadTimer);
     
-    // VISUAL CUE: Briefly brighten the vignette before fading out
-    loader.style.background = "radial-gradient(circle at center, #102a4d 0%, #050505 100%)";
+    // 1. Trigger the 'Flash' brightness
+    loader.classList.add('flashing');
     
+    // 2. Wait 500ms (peak of flash) before starting the fade-out
     setTimeout(() => {
         loader.classList.add('loader-hidden');
         document.body.classList.add('loaded');
-        showSection('about-me');
-    }, 1000); 
+        
+        // 3. Initialize your content
+        if (typeof showSection === "function") {
+            showSection('about-me');
+        }
+    }, 500); // This delay is the "Flash" duration
 }
 
         bar.style.width = progress + '%';
