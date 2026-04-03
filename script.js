@@ -273,14 +273,14 @@ window.addEventListener('load', () => {
     ];
 
     const loadTimer = setInterval(() => {
-        progress += Math.floor(Math.random() * 15) + 1; // Random increment for effect
+        progress += Math.floor(Math.random() * 15) + 1;
         
         if (progress >= 100) {
             progress = 100;
             clearInterval(loadTimer);
             setTimeout(() => {
-                loader.classList.add('loader-hidden'); // Fade out
-            }, 800); 
+                loader.classList.add('loader-hidden');
+            }, 800); // Small delay at 100% so they see the final status
         }
 
         bar.style.width = progress + '%';
@@ -290,7 +290,7 @@ window.addEventListener('load', () => {
         let msgIndex = Math.floor((progress / 100) * statusMessages.length);
         statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
         
-    }, 180); // Speed of the loader function
+    }, 120);
 });
 
 
