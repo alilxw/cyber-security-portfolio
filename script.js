@@ -162,6 +162,41 @@ window.addEventListener('keydown', (e) => {
 });
 
 
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-wrapper');
+    const bar = document.getElementById('bar');
+    const percentText = document.getElementById('percent');
+    const statusText = document.getElementById('status-text');
+    
+    let width = 0;
+    const stages = [
+        "MOUNTING_DRIVES...",
+        "LOADING_KERNEL...",
+        "ESTABLISHING_VPN...",
+        "DECRYPTING_BIO...",
+        "ACCESS_GRANTED"
+    ];
+
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                loader.classList.add('loader-hidden');
+            }, 500); // Small pause at 100% for effect
+        } else {
+            width += Math.floor(Math.random() * 10) + 1; // Random speed for realism
+            if (width > 100) width = 100;
+            
+            bar.style.width = width + '%';
+            percentText.innerText = width + '%';
+            
+            // Change status text based on progress
+            let stageIndex = Math.floor((width / 100) * stages.length);
+            statusText.innerText = stages[Math.min(stageIndex, stages.length - 1)];
+        }
+    }, 150); // Speed of the loader
+});
+
 
 
 
