@@ -230,14 +230,18 @@ window.addEventListener('load', () => {
         progress += Math.floor(Math.random() * 9) + 1; 
         
         if (progress >= 100) {
-            progress = 100;
-            clearInterval(loadTimer);
-            
-            // DELIBERATE PAUSE: Wait 1 second at 100% so the user sees "LOADED"
-            setTimeout(() => {
-                loader.classList.add('loader-hidden');
-            }, 500); 
-        }
+    progress = 100;
+    clearInterval(loadTimer);
+    
+    // VISUAL CUE: Briefly brighten the vignette before fading out
+    loader.style.background = "radial-gradient(circle at center, #102a4d 0%, #050505 100%)";
+    
+    setTimeout(() => {
+        loader.classList.add('loader-hidden');
+        document.body.classList.add('loaded');
+        showSection('about-me');
+    }, 1000); 
+}
 
         bar.style.width = progress + '%';
         percentText.innerText = progress + '%';
