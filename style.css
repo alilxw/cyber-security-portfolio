@@ -1722,18 +1722,6 @@ body.loaded #main-content {
     gap: 15px;
 }
 
-.cyber-footer {
-    padding: 50px 0; 
-    /* Changed to transparent to show Matrix background */
-   background: rgba(5, 5, 5, 0.5); 
-    /* Glass effect blur */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0, 123, 255, 0.3);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.75rem;
-    gap: 15px;
-}
 
 
 .footer-socials {
@@ -1745,10 +1733,9 @@ body.loaded #main-content {
     /* Glass effect blur */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0, 123, 255, 0.3);
     font-family: 'Fira Code', monospace;
     font-size: 0.75rem;
-    gap: 15px;
+   
 }
 
 .footer-socials a i {
