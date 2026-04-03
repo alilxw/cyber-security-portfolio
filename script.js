@@ -233,21 +233,20 @@ window.addEventListener('load', () => {
     progress = 100;
     clearInterval(loadTimer);
     
-    // 1. Trigger the 'Flash' brightness
+    // 1. Start the color transition (The Flash)
     loader.classList.add('flashing');
     
-    // 2. Wait 500ms (peak of flash) before starting the fade-out
+    // 2. Wait for the color to reach its brightest point (0.6s)
     setTimeout(() => {
+        // 3. Now start the smooth fade-out
         loader.classList.add('loader-hidden');
         document.body.classList.add('loaded');
         
-        // 3. Initialize your content
         if (typeof showSection === "function") {
             showSection('about-me');
         }
-    }, 500); // This delay is the "Flash" duration
+    }, 600); 
 }
-
         bar.style.width = progress + '%';
         percentText.innerText = progress + '%';
         
