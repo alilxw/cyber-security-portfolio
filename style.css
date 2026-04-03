@@ -816,18 +816,7 @@ h1.flicker {
     font-weight: bold;
 }
 
-.soc-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 15px;
-    background: #050505;
-    border-top: 1px solid rgba(0, 123, 255, 0.3);
-    font-family: 'Fira Code', monospace;
-    font-size: 0.75rem;
-    gap: 15px;
 
-}
 
 .nav-brand {
     font-family: 'Fira Code', monospace;
@@ -1029,11 +1018,6 @@ h1.flicker {
 }
 
 
-/* 3. Reduce footer padding */
-.cyber-footer {
-    padding: 50px 0; /* Tightens the very bottom of the page */
-    background: #050505;
-}
 
 
 
@@ -1099,25 +1083,7 @@ h1.flicker {
 
 
 
-footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 30px; /* Space between the icons */
-    margin-top: 20px;
-}
 
-.footer-socials a i {
-    font-size: 2rem !important; /* This makes them much larger */
-    color: var(--text);
-    transition: all 0.3s ease;
-}
-
-/* Cyber Glow Hover Effect */
-.footer-socials a:hover i {
-    color: var(--accent);
-    transform: translateY(-5px) scale(1.1); /* Lifts and slightly grows the icon */
-    text-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
-}
 
 /* Adjustments for Facebook specifically if it looks different */
 .fa-facebook {
@@ -1755,3 +1721,56 @@ body.loaded #main-content {
 .content-section.show .exp-card:nth-child(1) { transition-delay: 0.1s; }
 .content-section.show .exp-card:nth-child(2) { transition-delay: 0.2s; }
 .content-section.show .exp-card:nth-child(3) { transition-delay: 0.3s; }
+
+
+
+
+
+
+
+.soc-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px;
+    /* Changed to transparent background */
+    background: rgba(5, 5, 5, 0.5); 
+    /* Glass effect blur */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 123, 255, 0.3);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    gap: 15px;
+}
+
+.cyber-footer {
+    padding: 50px 0; 
+    /* Changed to transparent to show Matrix background */
+    background: transparent; 
+}
+
+/* Ensure any parent footer tag isn't blocking transparency */
+footer {
+    background: transparent !important;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px; 
+    margin-top: 20px;
+}
+
+.footer-socials a i {
+    font-size: 2rem !important; 
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+/* Cyber Glow Hover Effect remains the same */
+.footer-socials a:hover i {
+    color: var(--accent);
+    transform: translateY(-5px) scale(1.1); 
+    text-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
+}
