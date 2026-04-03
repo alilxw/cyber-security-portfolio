@@ -222,7 +222,7 @@ window.addEventListener('load', () => {
         "SSL_HANDSHAKE_START...",
         "DECRYPTING_RSA_KEYS...",
         "BYPASSING_FIREWALL...",
-        "ALI_SOC_OS_LOADED"
+        "ACCESS_GRANTED..."
     ];
 
     const loadTimer = setInterval(() => {
@@ -236,7 +236,7 @@ window.addEventListener('load', () => {
             // DELIBERATE PAUSE: Wait 1 second at 100% so the user sees "LOADED"
             setTimeout(() => {
                 loader.classList.add('loader-hidden');
-            }, 1000); 
+            }, 500); 
         }
 
         bar.style.width = progress + '%';
