@@ -1703,3 +1703,38 @@ body.offensive-theme .flicker {
 body.loaded #main-content {
     opacity: 1;
 }
+
+
+
+
+/* 1. The Base State (Hidden) */
+.content-section {
+    display: none; /* Keeps it out of the layout */
+    opacity: 0;
+    transform: translateY(20px); /* Moves it down slightly */
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 2. The Animation Trigger */
+.content-section.active {
+    display: block; /* Show it */
+}
+
+/* 3. The "Smooth" Reveal */
+/* We use a separate class for the animation so the browser has time to register the 'display: block' */
+.content-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Makes every glass panel inside an active section wait a split second */
+.content-section.show .glass-panel {
+    transition-delay: 0.2s;
+}
+
+/* If you have multiple cards, you can even stagger them */
+.content-section.show .exp-card:nth-child(1) { transition-delay: 0.1s; }
+.content-section.show .exp-card:nth-child(2) { transition-delay: 0.2s; }
+.content-section.show .exp-card:nth-child(3) { transition-delay: 0.3s; }
