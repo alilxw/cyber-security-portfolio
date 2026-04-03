@@ -164,37 +164,38 @@ window.addEventListener('keydown', (e) => {
 
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader-wrapper');
-    const bar = document.getElementById('bar');
+    const bar = document.getElementById('loader-bar');
     const percentText = document.getElementById('percent');
     const statusText = document.getElementById('status-text');
     
-    let width = 0;
-    const stages = [
-        "MOUNTING_DRIVES...",
-        "LOADING_KERNEL...",
-        "ESTABLISHING_SECURE_CONNECTION...",
-        "DECRYPTING_CREDENTIALS...",
-        "ACCESS_GRANTED !"
+    let progress = 0;
+    const statusMessages = [
+        "MTU_VERIFYING...",
+        "SSL_HANDSHAKE_START...",
+        "DECRYPTING_RSA_KEYS...",
+        "BYPASSING_FIREWALL...",
+        "ALI_SOC_OS_LOADED"
     ];
 
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
+    const loadTimer = setInterval(() => {
+        progress += Math.floor(Math.random() * 15) + 1; // Random increment for effect
+        
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(loadTimer);
             setTimeout(() => {
-                loader.classList.add('loader-hidden');
-            }, 500); // Small pause at 100% for effect
-        } else {
-            width += Math.floor(Math.random() * 10) + 1; // Random speed for realism
-            if (width > 100) width = 100;
-            
-            bar.style.width = width + '%';
-            percentText.innerText = width + '%';
-            
-            // Change status text based on progress
-            let stageIndex = Math.floor((width / 100) * stages.length);
-            statusText.innerText = stages[Math.min(stageIndex, stages.length - 1)];
+                loader.classList.add('loader-hidden'); // Fade out
+            }, 800); 
         }
-    }, 150); // Speed of the loader
+
+        bar.style.width = progress + '%';
+        percentText.innerText = progress + '%';
+        
+        // Cycle through status messages
+        let msgIndex = Math.floor((progress / 100) * statusMessages.length);
+        statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
+        
+    }, 120); // Speed of the loader function
 });
 
 
