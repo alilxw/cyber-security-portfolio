@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('.content-section');
     const indicator = document.querySelector('.move-indicator');
+    const body = document.body;
     const textElement = document.getElementById('typewriter');
     
-    let isManualScroll = false; 
+    let isManualScroll = false; // Prevents observer conflict during clicks
 
     // --- 1. TYPEWRITER EFFECT ---
     const phrases = ["SOC Analyst","Cyber Security Operations","Information Systems Security Manager"];
@@ -29,22 +30,33 @@ document.addEventListener('DOMContentLoaded', () => {
         indicator.style.left = `${element.offsetLeft}px`;
     }
 
-    // --- 3. UPDATED SMOOTH TAB SWITCHING ---
+    // --- 3. TAB SWITCHING + GLITCH ---
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
-            
-            isManualScroll = true; 
-            
-            // Move indicator immediately
-            moveIndicator(this);
-            
-            // Run smooth section reveal
-            showSection(targetId);
+            const targetSection = document.getElementById(targetId);
 
-            // Re-enable observer after transition
-            setTimeout(() => { isManualScroll = false; }, 800);
+            if (!targetSection || targetSection.classList.contains('active')) return;
+
+            isManualScroll = true; // Disable observer temporarily
+            body.classList.add('glitch-active');
+            
+            // Move indicator immediately on click
+            moveIndicator(this);
+
+            setTimeout(() => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                sections.forEach(s => s.classList.remove('active'));
+                targetSection.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 150);
+
+            setTimeout(() => {
+                body.classList.remove('glitch-active');
+                isManualScroll = false; // Re-enable observer
+            }, 400);
         });
     });
 
@@ -56,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const observer = new IntersectionObserver((entries) => {
-        if (isManualScroll) return; 
+        if (isManualScroll) return; // Skip if we are currently clicking a tab
 
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -72,68 +84,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(s => observer.observe(s));
 
-    // --- 5. MATRIX BACKGROUND ---
+    // script.js - Improved Matrix Logic
     const canvas = document.getElementById('matrix-bg');
     if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let columns, drops;
-        const fontSize = 14;
-        const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const ctx = canvas.getContext('2d');
+    let columns;
+    let drops;
+    const fontSize = 14;
+    const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        function initMatrix() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            columns = canvas.width / fontSize;
-            drops = Array(Math.floor(columns)).fill(1);
-        }
+    function initMatrix() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        columns = canvas.width / fontSize;
+        drops = Array(Math.floor(columns)).fill(1);
+    }
 
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(11, 11, 11, 0.1)"; 
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#007bff"; 
-            ctx.font = fontSize + "px monospace";
+    function drawMatrix() {
+        ctx.fillStyle = "rgba(11, 11, 11, 0.1)"; 
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            for (let i = 0; i < drops.length; i++) {
-                const text = chars.charAt(Math.floor(Math.random() * chars.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-                drops[i]++;
+        ctx.fillStyle = "#007bff"; 
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
             }
+            drops[i]++;
         }
-        initMatrix();
-        setInterval(drawMatrix, 50);
-        window.addEventListener('resize', initMatrix);
+    }
+
+    initMatrix();
+    setInterval(drawMatrix, 50);
+    window.addEventListener('resize', initMatrix);
+}
+
+    // Initialize indicator position on load
+    window.addEventListener('load', () => {
+        const activeLink = document.querySelector('.nav-links a.active');
+        if (activeLink) moveIndicator(activeLink);
+    });
+	
+	function updateLabTime() {
+    const timeElement = document.getElementById('realtime-date');
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    // Format: 2026-03-21 19:45
+    timeElement.textContent = `${year}-${month}-${day} ${hours}:${minutes}`;
+}
+
+// Run once on load
+updateLabTime();
+
+// Optional: Update every minute so the time stays "live" while they browse
+setInterval(updateLabTime, 6000);
+});
+
+// Type 'sudo' anywhere on the page to see a secret message
+let input = "";
+window.addEventListener('keydown', (e) => {
+    input += e.key;
+    if (input.includes("sudo")) {
+        alert("ACCESS GRANTED: Root privileges enabled for guest user.");
+        document.body.style.filter = "hue-rotate(180deg)"; // Turns the whole site a different color!
+        input = "";
     }
 });
 
-// --- 6. SMOOTH SECTION REVEAL FUNCTION ---
-function showSection(sectionId) {
-    const sections = document.querySelectorAll('.content-section');
-    const targetSection = document.getElementById(sectionId);
-    if (!targetSection) return;
 
-    // Fade out current sections
-    sections.forEach(section => {
-        section.classList.remove('show');
-        setTimeout(() => {
-            section.style.display = 'none';
-            section.classList.remove('active');
-        }, 300); // Wait for fade-out before display:none
-    });
-
-    // Prepare and fade in the target
-    setTimeout(() => {
-        targetSection.style.display = 'block';
-        targetSection.classList.add('active');
-        
-        // Small delay to trigger CSS transition
-        setTimeout(() => {
-            targetSection.classList.add('show');
-        }, 50);
-    }, 350);
-}
-
-// --- 7. LOADING SCREEN & INITIALIZATION ---
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader-wrapper');
     const bar = document.getElementById('loader-bar');
@@ -141,44 +169,73 @@ window.addEventListener('load', () => {
     const statusText = document.getElementById('status-text');
     
     let progress = 0;
-    const statusMessages = ["MTU_VERIFYING...", "SSL_HANDSHAKE...", "DECRYPTING_KEYS...", "BYPASSING_FIREWALL...", "ALI_SOC_OS_LOADED"];
+    const statusMessages = [
+        "MTU_VERIFYING...",
+        "SSL_HANDSHAKE_START...",
+        "DECRYPTING_RSA_KEYS...",
+        "BYPASSING_FIREWALL...",
+        "ALI_SOC_OS_LOADED"
+    ];
 
     const loadTimer = setInterval(() => {
-        progress += Math.floor(Math.random() * 3) + 1;
+        progress += Math.floor(Math.random() * 3) + 1; // Random increment for effect
+        
         if (progress >= 100) {
             progress = 100;
             clearInterval(loadTimer);
-            
             setTimeout(() => {
-                loader.classList.add('loader-hidden');
-                document.body.classList.add('loaded');
-                
-                // Initialize the first section smoothly
-                showSection('about-me');
-            }, 1000); 
+                loader.classList.add('loader-hidden'); // Fade out
+            }, 1200); 
         }
+
         bar.style.width = progress + '%';
         percentText.innerText = progress + '%';
+        
+        // Cycle through status messages
         let msgIndex = Math.floor((progress / 100) * statusMessages.length);
         statusText.innerText = statusMessages[Math.min(msgIndex, statusMessages.length - 1)];
-    }, 180);
+        
+    }, 180); // Speed of the loader function
 });
 
-// --- 8. UTILITIES (Sudo & Lab Time) ---
-window.addEventListener('keydown', (e) => {
-    window.inputBuffer = (window.inputBuffer || "") + e.key;
-    if (window.inputBuffer.includes("sudo")) {
-        alert("ACCESS GRANTED: Root privileges enabled.");
-        document.body.style.filter = "hue-rotate(180deg)";
-        window.inputBuffer = "";
-    }
-});
 
-function updateLabTime() {
-    const timeElement = document.getElementById('realtime-date');
-    if (!timeElement) return;
-    const now = new Date();
-    timeElement.textContent = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+// ... inside the if (progress >= 100) block
+setTimeout(() => {
+    loader.classList.add('loader-hidden');
+    document.body.classList.add('loaded'); // This triggers the main content fade-in
+}, 1000);
+
+
+
+
+
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    const targetSection = document.getElementById(sectionId);
+
+    // 1. Hide all current sections
+    sections.forEach(section => {
+        section.classList.remove('show'); // Triggers fade out
+        section.style.display = 'none';
+        section.classList.remove('active');
+    });
+
+    // 2. Prepare the target section
+    targetSection.style.display = 'block';
+    targetSection.classList.add('active');
+
+    // 3. Trigger the smooth animation (The "Tick")
+    // This small timeout ensures the browser sees the display change before animating
+    setTimeout(() => {
+        targetSection.classList.add('show');
+    }, 50);
+
+    // 4. Update Nav Links (Optional: adds a 'active' look to your buttons)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active-link');
+        if(link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active-link');
+        }
+    });
 }
-setInterval(updateLabTime, 6000);
-updateLabTime();
+
