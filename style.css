@@ -1728,16 +1728,13 @@ body.loaded #main-content {
     background: transparent; 
 }
 
-/* Ensure any parent footer tag isn't blocking transparency */
-footer {
-    background: transparent !important;
-}
 
 .footer-socials {
     display: flex;
     justify-content: center;
     gap: 10px; 
     margin-top: 10px;
+	background: transparent; 
 }
 
 .footer-socials a i {
