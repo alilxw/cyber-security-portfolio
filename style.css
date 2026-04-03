@@ -1570,6 +1570,17 @@ body.offensive-theme .flicker {
     justify-content: center;
     align-items: center;
     z-index: 99999;
+    /* SMOOTHER FADE: Increased to 1.2s and added a cubic-bezier for a "pro" feel */
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                visibility 1.2s,
+                transform 1.2s ease-in-out;
+}
+
+/* When this class is added, the loader fades AND shrinks slightly */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1); /* Subtle "zoom out" effect as it fades */
 }
 
 .loader-content {
@@ -1675,3 +1686,20 @@ body.offensive-theme .flicker {
 .progress-bar { width: 0%; height: 100%; background: var(--accent); box-shadow: 0 0 15px var(--accent); }
 .loader-status { display: flex; justify-content: space-between; font-family: 'Fira Code', monospace; font-size: 0.7rem; color: var(--accent); }
 .loader-hidden { opacity: 0; visibility: hidden; }
+
+
+
+
+
+
+/* Start your main content (or body) at 0 opacity */
+#main-content { /* Replace #main-content with your main wrapper ID */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    transition-delay: 0.5s; /* Starts fading in while the loader is fading out */
+}
+
+/* Once the loader is gone, show the content */
+body.loaded #main-content {
+    opacity: 1;
+}
