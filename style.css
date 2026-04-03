@@ -9,12 +9,21 @@ body {
     /* Deep Navy center (#0a192f) to Pitch Black edges (#050505) */
     background: radial-gradient(circle at center, #0a192f 0%, #050505 100%);
     background-attachment: fixed; /* Keeps the glow centered while you scroll */
+	font-family: 'Inter', sans-serif;
+    margin: 0;
 }
 
 /* Ensure the Matrix canvas remains transparent to show the gradient */
 #matrix-bg {
-    background: transparent !important;
-    opacity: 0.4; /* Slightly lower opacity makes the 'rain' feel like part of the atmosphere */
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Puts it behind everything */
+    filter: blur(1px); /* Makes it blurry and not distracting */
+    opacity: 0.5; /* Makes it very subtle */
+    pointer-events: none
 }
 
 
