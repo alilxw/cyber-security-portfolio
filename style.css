@@ -2159,3 +2159,64 @@ body::after {
     font-style: italic;
     opacity: 0.9;
 }
+
+.quote-box {
+    position: relative;
+    padding: 60px 80px; /* Extra padding to make room for the large icons */
+    text-align: center;
+}
+
+/* Common styles for both icons */
+.quote-box::before,
+.quote-box::after {
+    font-family: serif;
+    font-size: 5rem;
+    position: absolute;
+    color: rgba(0, 140, 255, 0.4); /* Matrix Blue at low opacity */
+    text-shadow: 0 0 15px rgba(0, 140, 255, 0.3);
+    line-height: 1;
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+/* The Opening Quote (Top Left) */
+.quote-box::before {
+    content: "“";
+    top: 10px;
+    left: 20px;
+}
+
+/* The Closing Quote (Bottom Right) */
+/* Note: We use a nested span or a second pseudo-element if ::after is taken by the scan line */
+/* Since ::after is used for your scan line, let's use a nested element for the second icon */
+
+
+/* Styling the manual right icon */
+.quote-icon-right {
+    font-family: serif;
+    font-size: 5rem;
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    color: rgba(0, 140, 255, 0.4);
+    text-shadow: 0 0 15px rgba(0, 140, 255, 0.3);
+    line-height: 1;
+    transition: all 0.4s ease;
+}
+
+/* Hover Effect: Make icons glow brighter when the box pops */
+.quote-box:hover::before,
+.quote-box:hover .quote-icon-right {
+    color: rgba(0, 195, 255, 0.8);
+    text-shadow: 0 0 20px rgba(0, 140, 255, 0.6);
+    transform: translateZ(20px); /* Makes icons pop out even more than the box */
+}
+
+/* Keep the blockquote text centered and sharp */
+.quote-box blockquote {
+    position: relative;
+    z-index: 5;
+    font-size: 1.2rem;
+    margin: 0;
+    font-family: var(--body-font); /* Using your new font */
+}
