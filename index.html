@@ -169,56 +169,57 @@
 </section>
 
 
-   
             </div>
         </section>
 		<section id="cyber-lab" class="content-section">
-			<div class="glass-panel">
+    <div class="glass-panel">
         <h2 class="flicker">VIRTUALIZED_ENTERPRISE_LAB</h2>
-        <p class="subtitle">> Infrastructure: VMware Workstation Pro // Segmented Architecture</p>
+        <p class="subtitle">> Infrastructure: VMware Workstation Pro // SOC & SIEM Topology</p>
 
         <div class="topology-grid">
             <div class="topo-node red-zone">
                 <i class="fas fa-user-secret node-icon"></i>
                 <h4>ATTACK_ZONE</h4>
                 <ul>
-                    <li>Kali Linux (Ethical Hacking)</li>
-                    <li>Nmap / Metasploit Framework</li>
+                    <li>Kali 26 / Parrot OS</li>
+                    <li>Metasploit / Nmap</li>
+                    <li>Metasploitable (Target)</li>
                 </ul>
             </div>
 
             <div class="topo-connector">
                 <i class="fas fa-shield-alt firewall-icon"></i>
-                <span>PFSense Firewall</span>
+                <span>pfSense Firewall</span>
             </div>
 
             <div class="topo-node blue-zone">
-                <i class="fas fa-server node-icon"></i>
-                <h4>DEFENSIVE_CORE</h4>
+                <i class="fas fa-microchip node-icon"></i>
+                <h4>SOC_OPERATIONS</h4>
                 <ul>
-                    <li>Ubuntu Server (Wazuh Manager)</li>
-                    <li>ELK Stack / Splunk Enterprise</li>
-                <li>GLPI (ITSM/Ticketing)</li>
+                    <li>Wazuh (SIEM/XDR)</li>
+                    <li>Splunk Enterprise (Logs)</li>
+                    <li>IRIS (Incident Response)</li>
                 </ul>
             </div>
 
             <div class="topo-node green-zone">
                 <i class="fas fa-network-wired node-icon"></i>
-                <h4>MANAGED_ENDPOINTS</h4>
+                <h4>INFRASTRUCTURE</h4>
                 <ul>
-                    <li>Windows Server (Active Directory)</li>
-                    <li>Ubuntu Desktop (Wazuh Agent)</li>
-                    <li>Docker Containers (Microservices)</li>
+                    <li>Windows Server AD</li>
+                    <li>Ubuntu GLPI (ITSM)</li>
+                    <li>Enterprise Endpoints</li>
                 </ul>
             </div>
         </div>
     </div>
-			<div class="tech-insight">
-    <p><strong><i class="fas fa-info-circle"></i> Security Logic:</strong> 
-    Traffic is filtered through <strong>PFSense</strong> using strict ACLs. 
-    <strong>Wazuh Agents</strong> on all endpoints forward syslogs via encrypted TLS 
-    to the centralized manager for real-time alerting and automated response.</p>
-</div>
+
+    <div class="tech-insight">
+        <p><strong><i class="fas fa-project-diagram"></i> Lab Architecture:</strong> 
+        This environment simulates a corporate SOC. <strong>pfSense</strong> serves as the core router, isolating the <strong>Attack Zone</strong> from the <strong>Defensive Core</strong>. 
+        I use <strong>Kali</strong> and <strong>Parrot OS</strong> to simulate real-world threats against <strong>Metasploitable</strong> targets and <strong>Active Directory</strong>, 
+        verifying that <strong>Wazuh</strong> and <strong>Splunk</strong> trigger the correct alerts for incident handling via <strong>IRIS</strong>.</p>
+    </div>
 </section>
    
 
