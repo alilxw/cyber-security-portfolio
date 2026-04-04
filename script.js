@@ -229,18 +229,20 @@ window.addEventListener('load', () => {
         // SMALLER INCREMENTS: 1 to 4% instead of 1 to 15%
         progress += Math.floor(Math.random() * 9) + 1; 
         
- if (progress >= 100) {
+// Inside your loader timer loop, when progress reaches 100:
+if (progress >= 100) {
     progress = 100;
     clearInterval(loadTimer);
     
-    // Immediate fade out once finished
     loader.classList.add('loader-hidden');
     document.body.classList.add('loaded');
     
-    // Start the first section animation
-    if (typeof showSection === "function") {
-        showSection('about-me');
-    }
+    // Wake up the observer
+    initGlitchScroll(); 
+    
+    // Force the first section (About-me) to appear immediately
+    const aboutSection = document.getElementById('about-me');
+    if(aboutSection) aboutSection.classList.add('active');
 }
         bar.style.width = progress + '%';
         percentText.innerText = progress + '%';
