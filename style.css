@@ -13,6 +13,20 @@ body {
     margin: 0;
 	color: white;
 }
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,500;1,300&display=swap');
+
+:root {
+    --primary-blue: #008cff;
+    --glass-white: rgba(255, 255, 255, 0.03);
+    --glass-blur: blur(15px);
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #00050a; /* Deep dark to make glass pop */
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
 
 /* Ensure the Matrix canvas remains transparent to show the gradient */
 #matrix-bg {
@@ -2073,58 +2087,64 @@ body::after {
     display: none;
 }
 
-/* Animation triggers once 'loaded' class is added to body */
-.loaded .glass-panel::after {
-    display: block;
-    animation: panel-scan 6s linear infinite;
-}
-
-@keyframes panel-scan {
-    0% { transform: translateY(0); top: -10%; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(1200px); top: 110%; opacity: 0; }
-}
 
 
 
 /* Apply to both the main panels and the quote box */
+/* Apply to every content container */
 .glass-panel, 
-.quote-box {
+.quote-box,
+.service-card,
+#about-me .container { 
     position: relative;
     overflow: hidden;
     
-    /* 1. Pure Transparency + Blur */
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    /* 1. Transparent + Blur (No Color) */
+    background: var(--glass-white);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     
     /* 2. Professional Border */
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 40px;
-    
-    /* 3. 3D "Pop" Preparation & Sharp Text Fix */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 30px;
+
+    /* 3. The 3D & Sharp Text Settings */
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     transform: translate3d(0, 0, 0); 
     backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
     transform-style: preserve-3d;
     
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* 4. The Unified 3D Hover */
+/* 4. The 3D "Float" Hover */
 .glass-panel:hover, 
-.quote-box:hover {
-    transform: translate3d(0, -10px, 0) scale(1.02) rotateX(2deg);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 140, 255, 0.4); /* Blue edge glow */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 
+.quote-box:hover,
+.service-card:hover {
+    /* Lift up and slightly scale */
+    transform: translate3d(0, -12px, 0) scale(1.02) rotateX(2deg);
+    background: rgba(255, 255, 255, 0.06); /* Subtle highlight */
+    border: 1px solid rgba(0, 140, 255, 0.4); /* Blue edge glow on hover */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 
                 0 0 15px rgba(0, 140, 255, 0.2);
 }
 
-.glass-panel::after,
+h1, h2, h3 {
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+}
+
+p, li, blockquote {
+    font-weight: 300; /* Lighter weight looks more "High-Tech" */
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.glass-panel::after, 
 .quote-box::after {
     content: "";
     position: absolute;
@@ -2132,91 +2152,20 @@ body::after {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba(0, 195, 255, 0.8), 
-        transparent
-    );
-    box-shadow: 0 0 20px rgba(0, 140, 255, 0.6);
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+    box-shadow: 0 0 15px var(--primary-blue);
     z-index: 10;
     pointer-events: none;
 }
 
-/* Activate the scan line on page load */
-.loaded .glass-panel::after,
+.loaded .glass-panel::after, 
 .loaded .quote-box::after {
-    display: block;
     animation: panel-scan 6s linear infinite;
 }
 
-.quote-box blockquote {
-    font-family: 'JetBrains Mono', monospace; /* Or your preferred choice */
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #ffffff;
-    margin: 0;
-    font-style: italic;
-    opacity: 0.9;
-}
-
-.quote-box {
-    position: relative;
-    padding: 60px 80px; /* Extra padding to make room for the large icons */
-    text-align: center;
-}
-
-/* Common styles for both icons */
-.quote-box::before,
-.quote-box::after {
-    font-family: serif;
-    font-size: 5rem;
-    position: absolute;
-    color: rgba(0, 140, 255, 0.4); /* Matrix Blue at low opacity */
-    text-shadow: 0 0 15px rgba(0, 140, 255, 0.3);
-    line-height: 1;
-    pointer-events: none;
-    transition: all 0.4s ease;
-}
-
-/* The Opening Quote (Top Left) */
-.quote-box::before {
-    content: "“";
-    top: 10px;
-    left: 20px;
-}
-
-/* The Closing Quote (Bottom Right) */
-/* Note: We use a nested span or a second pseudo-element if ::after is taken by the scan line */
-/* Since ::after is used for your scan line, let's use a nested element for the second icon */
-
-
-/* Styling the manual right icon */
-.quote-icon-right {
-    font-family: serif;
-    font-size: 5rem;
-    position: absolute;
-    bottom: -10px;
-    right: 20px;
-    color: rgba(0, 140, 255, 0.4);
-    text-shadow: 0 0 15px rgba(0, 140, 255, 0.3);
-    line-height: 1;
-    transition: all 0.4s ease;
-}
-
-/* Hover Effect: Make icons glow brighter when the box pops */
-.quote-box:hover::before,
-.quote-box:hover .quote-icon-right {
-    color: rgba(0, 195, 255, 0.8);
-    text-shadow: 0 0 20px rgba(0, 140, 255, 0.6);
-    transform: translateZ(20px); /* Makes icons pop out even more than the box */
-}
-
-/* Keep the blockquote text centered and sharp */
-.quote-box blockquote {
-    position: relative;
-    z-index: 5;
-    font-size: 1.2rem;
-    margin: 0;
-    font-family: var(--body-font); /* Using your new font */
+@keyframes panel-scan {
+    0% { transform: translateY(0); top: -10%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(1000px); top: 110%; opacity: 0; }
 }
