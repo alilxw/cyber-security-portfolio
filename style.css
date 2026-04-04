@@ -2008,4 +2008,27 @@ body {
 
 
 
+* Update the section container */
+.content-section {
+    display: none; /* Keeps tabs working */
+    opacity: 1;
+    filter: none !important;      /* REMOVE THE BLUR */
+    transform: none !important;   /* REMOVE THE SLIDE */
+    transition: opacity 0.4s ease; /* Keep a simple fade for tab switching */
+    padding: 120px 10%;
+}
 
+/* Force the active section to show */
+.content-section.active {
+    display: block !important;
+}
+
+/* Check your glass-panel as well */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* This blur is GOOD (it's the background glass effect) */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+}
