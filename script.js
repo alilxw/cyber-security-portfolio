@@ -254,6 +254,45 @@ if (progress >= 100) {
 });
 
 
+// 1. SHOW CONTENT AFTER LOADER
+function endLoading() {
+    const loader = document.getElementById('loader-wrapper');
+    const main = document.getElementById('main-content');
+    
+    loader.style.display = 'none';
+    main.style.opacity = '1';
+    main.style.visibility = 'visible';
+
+    // Start the Scroll Observer now that content is visible
+    initGlitchScroll(); 
+}
+
+// 2. SMOOTH NAVIGATION ENGINE
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+            // Scroll smoothly to section
+            window.scrollTo({
+                top: targetSection.offsetTop - 80, // Offset for your header
+                behavior: 'smooth'
+            });
+
+            // FORCE REVEAL: Add 'active' class immediately so it's not invisible
+            targetSection.classList.add('active');
+
+            // Update active link styling
+            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        }
+    });
+});
+
+
 
 
 const canvas = document.getElementById('data-trail');
@@ -316,40 +355,6 @@ function animate() {
 animate();
 
 
-
-
-
-// --- INTEGRATION WITH YOUR LOADER ---
-// Find your existing loader code and add 'initGlitchScroll()' 
-// where the loading screen fades out. 
-// Example:
-/*
-function endLoading() {
-    document.getElementById('loader-wrapper').classList.add('fade-out');
-    initGlitchScroll(); // <--- START THE OBSERVER HERE
-}
-*/
-
-// --- TERMINAL NAVIGATION ENGINE ---
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault(); // Stop the instant "jump"
-
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-            // 1. Smoothly scroll to the target
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-
-            // 2. Force the Glitch Animation to trigger immediately
-            // This ensures the section isn't invisible when you get there
-            targetElement.classList.add('active');
-        }
-    });
 });
 
 
