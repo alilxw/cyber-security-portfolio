@@ -2003,3 +2003,33 @@ body {
     }
 }
 
+
+
+
+
+/* Initial hidden/glitchy state */
+.reveal-on-scroll {
+    opacity: 0;
+    filter: blur(10px) brightness(2);
+    transform: translateY(30px) skewX(-10deg);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The 'Decoded' active state */
+.reveal-on-scroll.active {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: translateY(0) skewX(0);
+}
+
+/* Optional: Add a subtle 'shiver' animation as it appears */
+.reveal-on-scroll.active {
+    animation: glitch-snap 0.4s ease-out;
+}
+
+@keyframes glitch-snap {
+    0% { transform: translateX(-5px) skewX(5deg); }
+    25% { transform: translateX(5px) skewX(-5deg); }
+    50% { transform: translateX(-2px) skewX(2deg); }
+    100% { transform: translateX(0) skewX(0); }
+}
