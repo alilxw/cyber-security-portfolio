@@ -1679,18 +1679,20 @@ body.loaded #main-content {
 
 
 
-/* 1. The Base State (Hidden) */
 .content-section {
-    display: none; /* Keeps it out of the layout */
-    opacity: 0;
-    transform: translateY(20px); /* Moves it down slightly */
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none; /* Keep this so only one tab shows at a time */
+    opacity: 1;
+    transform: none;
+    padding: 100px 10%;
 }
 
-/* 2. The Animation Trigger */
+/* This is the key: it forces the first section to be visible */
+#about-me {
+    display: block !important;
+}
+
 .content-section.active {
-    display: block; /* Show it */
+    display: block !important;
 }
 
 /* 3. The "Smooth" Reveal */
