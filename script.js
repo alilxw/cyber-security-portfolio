@@ -312,3 +312,30 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        threshold: 0.15 // Trigger when 15% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the 'active' class to start the reconstruction
+                entry.target.classList.add('active');
+                
+                // Once it's revealed, stop observing it for performance
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Attach the observer to every element with our custom class
+    const scrollElements = document.querySelectorAll('.reveal-on-scroll');
+    scrollElements.forEach(el => observer.observe(el));
+});
