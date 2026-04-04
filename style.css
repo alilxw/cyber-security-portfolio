@@ -1895,3 +1895,17 @@ body.loaded #main-content {
     50% { transform: translate(-2px, 0); filter: hue-rotate(90deg); }
     100% { transform: translate(0, 0); }
 }
+
+
+@keyframes textFlicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.5; }
+    94% { opacity: 1; }
+    98% { opacity: 0.3; }
+    99% { opacity: 1; }
+}
+
+.flicker {
+    animation: textFlicker 3s linear infinite;
+}
