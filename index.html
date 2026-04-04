@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">   
 	
 
 
@@ -40,8 +37,7 @@
     </div>
 </div>
 
-
-	<canvas id="data-trail"></canvas>
+  
     <canvas id="matrix-bg"></canvas>
     <div id="transition-overlay"></div> 
     <header class="main-header">
@@ -63,14 +59,14 @@
 </header>
 
     <main id="content-wrapper">
-     <section id="about-me">
+     <section id="about-me" class="content-section active">
 		 <div class="glass-panel">
     <div class="hero-container">
         <div class="hero-content">
             <div class="hero-text-wrapper">
                 <h1 class="flicker">Ali ELOUAHED</h1>
                 <h2 class="role-title">> <span id="typewriter"></span><span class="cursor">|</span></h2>
-            <p class="bio-long" class="content-section reveal-on-scroll">
+            <p class="bio-long">
                     I am an experienced <span class="highlight">SOC Analyst</span> with over 3 years of expertise in maintaining robust IT infrastructures, ensuring system security, and providing efficient technical support. My proven ability in troubleshooting complex network issues and implementing effective software solutions has allowed me to successfully maintain and secure IT systems in various professional environments.
                 </p>  
             </div>
@@ -80,7 +76,7 @@
                 <img src="assets/profile.png" alt="Ali Elouahed" id="my-photo">
                 
                 
-                <div class="quote-container"  >
+                <div class="quote-container">
                     <div class="quote-box">
                         <span class="quote-icon left">“</span>
                         <p class="quote-text">
@@ -99,7 +95,7 @@
 		   <div class="glass-panel">
     <h2 class="section-title"><span class="accent-text">#My_Experiences </span></h2>
 
-    <div class="exp-category"  >
+    <div class="exp-category">
         <span class="cat-el">EXPERIENCES</span>
         <h3 class="cat-title">Work Experience</h3>
         <div class="exp-grid">
@@ -114,7 +110,7 @@
                 </ul>
             </div>
             
-            <div class="exp-card" >
+            <div class="exp-card">
                 <span class="exp-year">2019 — 2020</span>
                 <h4 class="exp-card-title">Network Administrator</h4>
                 <p class="exp-org">Etterkib SPA</p>
@@ -129,16 +125,16 @@
 			   </div>
 			   
 
-    <div class="exp-category" >
+    <div class="exp-category">
 		<div class="glass-panel">
         <span class="cat-el">EXPERIENCES</span>
         <h3 class="cat-title">Education</h3>
         <div class="exp-grid">
-            <div class="exp-card" >
+            <div class="exp-card">
                 <span class="exp-year">Institute Level</span>
                 <h4 class="exp-card-title">Associate Degree in Computer Networks and Systems</h4>
                 <p class="exp-org">The National Institute of Professional Training (INSFP) «Khalil Ziyat», Blida , ALGERIA </p>
-                <p class="exp-description" > <li>Build foundations in networking, systems, and IT infrastructure.</li>
+                <p class="exp-description"> <li>Build foundations in networking, systems, and IT infrastructure.</li>
 				<li>Configure and manage networks and operating systems.</li>
 <li>Apply basic cybersecurity and monitoring practices.</li>
 <li>Troubleshoot technical and security issues.</li>
@@ -148,12 +144,12 @@
     </div>
 		</div>
 
-    <div class="exp-category" >
+    <div class="exp-category">
 		<div class="glass-panel">
         <span class="cat-el">EXPERIENCES</span>
         <h3 class="cat-title">Certifications</h3>
         <div class="exp-grid">
-            <div class="exp-card highlight-card" >
+            <div class="exp-card highlight-card">
                 <span class="exp-year status-blink">In Progress</span>
                 <h4 class="exp-card-title">Ethical Hacker</h4>
                 <p class="exp-org">Cisco Networking Academy</p>
@@ -173,65 +169,64 @@
 </section>
 
 
+   
             </div>
         </section>
-		<section id="cyber-lab" class="content-section" >
-    <div class="glass-panel">
+		<section id="cyber-lab" class="content-section">
+			<div class="glass-panel">
         <h2 class="flicker">VIRTUALIZED_ENTERPRISE_LAB</h2>
-        <p class="subtitle">> Infrastructure: VMware Workstation Pro // SOC & SIEM Topology</p>
+        <p class="subtitle">> Infrastructure: VMware Workstation Pro // Segmented Architecture</p>
 
         <div class="topology-grid">
             <div class="topo-node red-zone">
                 <i class="fas fa-user-secret node-icon"></i>
                 <h4>ATTACK_ZONE</h4>
                 <ul>
-                    <li>Kali 26 / Parrot OS</li>
-                    <li>Metasploit / Nmap</li>
-                    <li>Metasploitable (Target)</li>
+                    <li>Kali Linux (Ethical Hacking)</li>
+                    <li>Nmap / Metasploit Framework</li>
                 </ul>
             </div>
 
             <div class="topo-connector">
                 <i class="fas fa-shield-alt firewall-icon"></i>
-                <span>pfSense Firewall</span>
+                <span>PFSense Firewall</span>
             </div>
 
             <div class="topo-node blue-zone">
-                <i class="fas fa-microchip node-icon"></i>
-                <h4>SOC_OPERATIONS</h4>
+                <i class="fas fa-server node-icon"></i>
+                <h4>DEFENSIVE_CORE</h4>
                 <ul>
-                    <li>Wazuh (SIEM/XDR)</li>
-                    <li>Splunk Enterprise (Logs)</li>
-                    <li>IRIS (Incident Response)</li>
+                    <li>Ubuntu Server (Wazuh Manager)</li>
+                    <li>ELK Stack / Splunk Enterprise</li>
+                <li>GLPI (ITSM/Ticketing)</li>
                 </ul>
             </div>
 
             <div class="topo-node green-zone">
                 <i class="fas fa-network-wired node-icon"></i>
-                <h4>INFRASTRUCTURE</h4>
+                <h4>MANAGED_ENDPOINTS</h4>
                 <ul>
-                    <li>Windows Server AD</li>
-                    <li>Ubuntu GLPI (ITSM)</li>
-                    <li>Enterprise Endpoints</li>
+                    <li>Windows Server (Active Directory)</li>
+                    <li>Ubuntu Desktop (Wazuh Agent)</li>
+                    <li>Docker Containers (Microservices)</li>
                 </ul>
             </div>
         </div>
     </div>
-
-    <div class="tech-insight" >
-        <p><strong><i class="fas fa-project-diagram"></i> Lab Architecture:</strong> 
-        This environment simulates a corporate SOC. <strong>pfSense</strong> serves as the core router, isolating the <strong>Attack Zone</strong> from the <strong>Defensive Core</strong>. 
-        I use <strong>Kali</strong> and <strong>Parrot OS</strong> to simulate real-world threats against <strong>Metasploitable</strong> targets and <strong>Active Directory</strong>, 
-        verifying that <strong>Wazuh</strong> and <strong>Splunk</strong> trigger the correct alerts for incident handling via <strong>IRIS</strong>.</p>
-    </div>
+			<div class="tech-insight">
+    <p><strong><i class="fas fa-info-circle"></i> Security Logic:</strong> 
+    Traffic is filtered through <strong>PFSense</strong> using strict ACLs. 
+    <strong>Wazuh Agents</strong> on all endpoints forward syslogs via encrypted TLS 
+    to the centralized manager for real-time alerting and automated response.</p>
+</div>
 </section>
    
 
 
-<section id="skills" class="content-section" >
+<section id="skills" class="content-section">
 	<div class="glass-panel">
 		
-    <h2 class="section-title"  ><span class="accent-text">#My_Arsenal</span> </h2>
+    <h2 class="section-title"><span class="accent-text">#My_Arsenal</span> </h2>
     <div class="skill-category">
         <h3 class="skill-cat-title">> _network_&_perimeter_defense</h3>
         <div class="skills-grid">
@@ -254,7 +249,7 @@
     </div>
 		
 
-    <div class="skill-category" >
+    <div class="skill-category">
         <h3 class="skill-cat-title">> _monitoring_&_incident_response</h3>
         <div class="skills-grid">
             <div class="skill-item">
@@ -275,7 +270,7 @@
         </div>
     </div>
 
-    <div class="skill-category" >
+    <div class="skill-category">
         <h3 class="skill-cat-title">> _os_&_platform_administration</h3>
         <div class="skills-grid">
             <div class="skill-item">
@@ -304,7 +299,7 @@
 	
 </section>
 
-        <section id="cv" class="content-section" >
+        <section id="cv" class="content-section">
 			<div class="glass-panel">
             <div class="center-wrapper">
         <h2 class="section-title">#Resume</h2>
@@ -316,14 +311,14 @@
 				</div>
 </section>
 
-        <section id="contacts" class="content-section" >
+        <section id="contacts" class="content-section">
 			<div class="glass-panel">
            <div class="center-wrapper">
         <h2 class="section-title">#Contact</h2>
 		<p class="cta-text">Looking for a dedicated SOC Analyst?</p>
          <a href="mailto:Elouahedali@gmail.com" class="hire-btn">Initiate Connection</a>
        
-        <div class="contact-info" >
+        <div class="contact-info">
             <p><i class="fas fa-envelope"></i> Elouahedali@gmail.com</p>
             <p><i class="fas fa-phone"></i> (+213) 676 77 08 76</p>
             <p><i class="fas fa-map-marker-alt"></i> Ben Aknoun, Algiers</p>
