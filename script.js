@@ -229,20 +229,18 @@ window.addEventListener('load', () => {
         // SMALLER INCREMENTS: 1 to 4% instead of 1 to 15%
         progress += Math.floor(Math.random() * 9) + 1; 
         
-// Inside your loader timer loop, when progress reaches 100:
-if (progress >= 100) {
+ if (progress >= 100) {
     progress = 100;
     clearInterval(loadTimer);
     
+    // Immediate fade out once finished
     loader.classList.add('loader-hidden');
     document.body.classList.add('loaded');
     
-    // Wake up the observer
-    initGlitchScroll(); 
-    
-    // Force the first section (About-me) to appear immediately
-    const aboutSection = document.getElementById('about-me');
-    if(aboutSection) aboutSection.classList.add('active');
+    // Start the first section animation
+    if (typeof showSection === "function") {
+        showSection('about-me');
+    }
 }
         bar.style.width = progress + '%';
         percentText.innerText = progress + '%';
@@ -253,6 +251,102 @@ if (progress >= 100) {
     }, 180); // SLOWER TICK: 180ms instead of 120ms
 });
 
+
+
+
+const canvas = document.getElementById('data-trail');
+const ctx = canvas.getContext('2d');
+
+let particles = [];
+const codes = "0101010101ABCDEF0123456789";
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+class Particle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.character = codes[Math.floor(Math.random() * codes.length)];
+        this.opacity = 1;
+        this.life = 1.0;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+    }
+
+    draw() {
+        ctx.fillStyle = `rgba(0, 123, 255, ${this.opacity})`; // Your accent blue
+        ctx.font = "12px 'JetBrains Mono'";
+        ctx.fillText(this.character, this.x, this.y);
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.life -= 0.02; // How fast it disappears
+        this.opacity = this.life;
+    }
+}
+
+window.addEventListener('mousemove', (e) => {
+    // Only create particles if moving (prevents clutter)
+    for (let i = 0; i < 2; i++) {
+        particles.push(new Particle(e.clientX, e.clientY));
+    }
+});
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        if (particles[i].life <= 0) {
+            particles.splice(i, 1);
+            i--;
+        }
+    }
+    requestAnimationFrame(animate);
+}
+animate();
+
+
+
+// --- INTEGRATION WITH YOUR LOADER ---
+// Find your existing loader code and add 'initGlitchScroll()' 
+// where the loading screen fades out. 
+// Example:
+/*
+function endLoading() {
+    document.getElementById('loader-wrapper').classList.add('fade-out');
+    initGlitchScroll(); // <--- START THE OBSERVER HERE
+}
+*/
+
+// --- TERMINAL NAVIGATION ENGINE ---
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Stop the instant "jump"
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            // 1. Smoothly scroll to the target
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // 2. Force the Glitch Animation to trigger immediately
+            // This ensures the section isn't invisible when you get there
+            targetElement.classList.add('active');
+        }
+    });
+});
 
 
 const canvas = document.getElementById('data-trail');
