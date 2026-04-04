@@ -314,3 +314,26 @@ function animate() {
 animate();
 
 
+
+
+// --- TERMINAL NAVIGATION ENGINE ---
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Stop the instant "jump"
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            // 1. Smoothly scroll to the target
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // 2. Force the Glitch Animation to trigger immediately
+            // This ensures the section isn't invisible when you get there
+            targetElement.classList.add('active');
+        }
+    });
+});
