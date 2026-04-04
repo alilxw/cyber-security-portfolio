@@ -1897,4 +1897,46 @@ body.loaded #main-content {
 }
 
 
+:root {
+    --font-kernel: 'JetBrains Mono', monospace;
+    --font-glitch: 'Fira Code', monospace;
+    --accent-glow: rgba(0, 123, 255, 0.5);
+}
 
+body {
+    font-family: var(--font-kernel);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    /* Subtle text glow for that 'Terminal' feel */
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+h1, h2, h3, .loader-name {
+    font-family: var(--font-glitch);
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* Make code snippets or technical lists look like a Kernel Log */
+.tech-insight, .topo-node ul {
+    font-size: 0.9rem;
+    color: #b0c4de; /* Dimmer blue-gray for secondary text */
+}
+
+strong {
+    color: #007bff; /* Highlighted text in your accent blue */
+    font-weight: 800;
+}
+
+#loader-typewriter::after {
+    content: "|";
+    margin-left: 5px;
+    color: #fff;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
