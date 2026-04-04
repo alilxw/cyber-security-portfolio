@@ -2015,19 +2015,45 @@ body::after {
     pointer-events: none; /* Crucial: lets you click through to the site */
 }
 
-.glass-panel::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: -100%;
-    width: 100%;
-    height: 100px; /* The 'depth' of the scan beam */
-    background: linear-gradient(to bottom, transparent, rgba(0, 123, 255, 0.1), transparent);
-    animation: scan-vertical 4s ease-in-out infinite;
-    pointer-events: none;
+/* Ensure the panel can contain the absolute-positioned scanner */
+.glass-panel {
+    position: relative;
+    overflow: hidden; /* This "clips" the scanner so it stays inside the panel */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* ... your other panel styles ... */
 }
 
-@keyframes scan-vertical {
-    0% { top: -100%; }
-    100% { top: 100%; }
+/* The Scanner Line */
+.glass-panel::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(0, 255, 65, 0.5), /* Matrix Green (lowered opacity for subtleness) */
+        transparent
+    );
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+    z-index: 5;
+    pointer-events: none;
+    display: none; /* Hidden by default */
+}
+
+/* The Animation Trigger */
+.loaded .glass-panel::after {
+    display: block;
+    animation: panel-scan 4s linear infinite;
+}
+
+@keyframes panel-scan {
+    0% { transform: translateY(0); top: -10%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { transform: translateY(1000px); top: 110%; opacity: 0; }
 }
