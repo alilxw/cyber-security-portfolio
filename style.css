@@ -2005,5 +2005,14 @@ body {
 
 
 
+:root {
+    scroll-behavior: smooth; /* Native backup for smooth scrolling */
+}
+
+section {
+    scroll-margin-top: 80px; /* Adjust this to match your Header's height */
+}
+
+
 
 
