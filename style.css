@@ -2020,57 +2020,63 @@ body::after {
     position: relative;
     overflow: hidden;
     
-    /* Neutral Transparency: Using white at 3% to 5% opacity */
-    background: rgba(255, 255, 255, 0.03); 
-    
-    /* The Frosting: High blur for readability */
-    backdrop-filter: blur(15px);
+    /* 1. Pure Transparency + Blur */
+    background: rgba(255, 255, 255, 0.02); /* Almost invisible background */
+    backdrop-filter: blur(15px); /* Strong blur to neutralize Matrix background */
     -webkit-backdrop-filter: blur(15px);
     
-    /* The Edge: A very thin, subtle white border */
+    /* 2. Professional Border & Shape */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 40px;
     
-    /* Shadow: Deep shadow to give the "glass" depth */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    
-    color: #ffffff; /* Ensures text is crisp against the blur */
+    /* 3. Smooth Transition for the 3D effect */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* The Scanner Line */
+/* 4. The 3D Pop on Hover */
+.glass-panel:hover {
+    transform: translateY(-10px) scale(1.02) rotateX(2deg);
+    background: rgba(255, 255, 255, 0.05); /* Slight brighten on hover */
+    border: 1px solid rgba(0, 140, 255, 0.4); /* Blue edge highlight */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 
+                0 0 15px rgba(0, 140, 255, 0.2); /* Subtle blue glow */
+}
+
 .glass-panel::after {
     content: "";
     position: absolute;
     top: -100px;
     left: 0;
     width: 100%;
-    height: 1px; /* Thinner line for a more precise "laser" feel */
+    height: 2px;
     
-    /* White Gradient */
+    /* Electric Blue Gradient */
     background: linear-gradient(
         90deg, 
         transparent, 
-        rgba(255, 255, 255, 0.4), 
+        rgba(0, 195, 255, 0.8), 
         transparent
     );
     
-    /* White Glow */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    z-index: 5;
+    /* Blue Glow Effect */
+    box-shadow: 0 0 20px rgba(0, 140, 255, 0.6);
+    z-index: 10;
     pointer-events: none;
     display: none;
 }
 
-/* Trigger animation once the page is ready */
+/* Animation triggers once 'loaded' class is added to body */
 .loaded .glass-panel::after {
     display: block;
-    animation: panel-scan 5s linear infinite;
+    animation: panel-scan 6s linear infinite;
 }
 
 @keyframes panel-scan {
     0% { transform: translateY(0); top: -10%; opacity: 0; }
     10% { opacity: 1; }
     90% { opacity: 1; }
-    100% { transform: translateY(1000px); top: 110%; opacity: 0; }
+    100% { transform: translateY(1200px); top: 110%; opacity: 0; }
 }
