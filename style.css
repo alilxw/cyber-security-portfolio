@@ -2005,6 +2005,35 @@ body {
 
 
 
+
+/* 1. The 'Scrambled' State (Hidden) */
+.reveal-on-scroll {
+    opacity: 0;
+    filter: blur(15px) brightness(2);
+    transform: translateY(50px) skewX(-15deg);
+    transition: all 1.0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: opacity, transform, filter;
+}
+
+/* 2. The 'Decoded' State (Visible) */
+.reveal-on-scroll.active {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: translateY(0) skewX(0);
+}
+
+/* 3. The Glitch Snap Animation */
+.reveal-on-scroll.active {
+    animation: glitch-snap 0.5s ease-out;
+}
+
+@keyframes glitch-snap {
+    0% { transform: translateX(-10px) skewX(10deg); filter: hue-rotate(90deg); }
+    20% { transform: translateX(10px) skewX(-10deg); filter: hue-rotate(-90deg); }
+    40% { transform: translateX(-5px) skewX(5deg); }
+    100% { transform: translateX(0) skewX(0); }
+}
+
 :root {
     scroll-behavior: smooth; /* Native backup for smooth scrolling */
 }
