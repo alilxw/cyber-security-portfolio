@@ -2048,13 +2048,7 @@ body::after {
                 box-shadow 0.3s ease;
 }
 
-.glass-panel:hover {
-    /* Use translate3d instead of translateY for better GPU performance */
-    transform: translate3d(0, -10px, 0) scale(1.02);
-    
-    /* 4. Ensure the text stays on top and crisp */
-    filter: none !important; /* Ensures no blur is accidentally applied to the text layer */
-}
+
 
 /* Create a dedicated background layer inside the panel */
 .glass-panel::before {
