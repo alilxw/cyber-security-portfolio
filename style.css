@@ -2114,15 +2114,22 @@ body::after {
 }
 
 /* 4. The 3D "Float" Hover */
+/* Update this for all your containers */
 .glass-panel:hover, 
 .quote-box:hover,
 .service-card:hover {
-    /* Lift up and slightly scale */
+    /* 1. Lift and Rotate */
     transform: translate3d(0, -12px, 0) scale(1.02) rotateX(2deg);
-    background: rgba(255, 255, 255, 0.06); /* Subtle highlight */
-    border: 1px solid rgba(0, 140, 255, 0.4); /* Blue edge glow on hover */
+    
+    /* 2. Change Hover Color: Deep blue-tinted transparency instead of white */
+    background: rgba(0, 140, 255, 0.08); 
+    
+    /* 3. Border Glow: Matches your blue scan line */
+    border: 1px solid rgba(0, 195, 255, 0.5); 
+    
+    /* 4. Shadow: Adds a blue "Underglow" to the 3D float */
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 
-                0 0 15px rgba(0, 140, 255, 0.2);
+                0 0 20px rgba(0, 140, 255, 0.2); 
 }
 
 h1, h2, h3 {
@@ -2162,4 +2169,13 @@ p, li, blockquote {
     10% { opacity: 1; }
     90% { opacity: 1; }
     100% { transform: translateY(1000px); top: 110%; opacity: 0; }
+}
+
+.glass-panel, .quote-box {
+    /* ... existing styles ... */
+    transition: 
+        transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), 
+        background 0.5s ease, 
+        border 0.5s ease, 
+        box-shadow 0.5s ease;
 }
