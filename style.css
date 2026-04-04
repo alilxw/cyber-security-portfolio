@@ -1996,3 +1996,13 @@ body {
     animation: ambient-breath 10s ease-in-out infinite;
     overflow-x: hidden; /* Extra safety for that scanline effect */
 }
+
+
+:root {
+    --bg-inner: #071324;
+}
+
+body {
+    background: radial-gradient(circle at center, var(--bg-inner) 0%, #050505 100%);
+    transition: --bg-inner 5s ease-in-out; /* Smoothly transitions the variable */
+}
