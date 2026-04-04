@@ -254,44 +254,6 @@ if (progress >= 100) {
 });
 
 
-// 1. SHOW CONTENT AFTER LOADER
-function endLoading() {
-    const loader = document.getElementById('loader-wrapper');
-    const main = document.getElementById('main-content');
-    
-    loader.style.display = 'none';
-    main.style.opacity = '1';
-    main.style.visibility = 'visible';
-
-    // Start the Scroll Observer now that content is visible
-    initGlitchScroll(); 
-}
-
-// 2. SMOOTH NAVIGATION ENGINE
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-
-        if (targetSection) {
-            // Scroll smoothly to section
-            window.scrollTo({
-                top: targetSection.offsetTop - 80, // Offset for your header
-                behavior: 'smooth'
-            });
-
-            // FORCE REVEAL: Add 'active' class immediately so it's not invisible
-            targetSection.classList.add('active');
-
-            // Update active link styling
-            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        }
-    });
-});
-
 
 
 
