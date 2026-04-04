@@ -339,3 +339,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollElements = document.querySelectorAll('.reveal-on-scroll');
     scrollElements.forEach(el => observer.observe(el));
 });
+
+// Inside your existing loader function (where you hide the Ali_soc.exe screen)
+function hideLoader() {
+    document.getElementById('loader-wrapper').style.display = 'none';
+    document.getElementById('main-content').style.opacity = '1';
+    
+    // START THE OBSERVER HERE
+    initScrollReveal(); 
+}
+
+function initScrollReveal() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            console.log('Checking element:', entry.target); // Debugging line
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
