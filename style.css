@@ -1679,20 +1679,18 @@ body.loaded #main-content {
 
 
 
+/* 1. The Base State (Hidden) */
 .content-section {
-    display: none; /* Keep this so only one tab shows at a time */
-    opacity: 1;
-    transform: none;
-    padding: 100px 10%;
+    display: none; /* Keeps it out of the layout */
+    opacity: 0;
+    transform: translateY(20px); /* Moves it down slightly */
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* This is the key: it forces the first section to be visible */
-#about-me {
-    display: block !important;
-}
-
+/* 2. The Animation Trigger */
 .content-section.active {
-    display: block !important;
+    display: block; /* Show it */
 }
 
 /* 3. The "Smooth" Reveal */
@@ -1899,7 +1897,6 @@ body.loaded #main-content {
 }
 
 
-
 :root {
     --font-kernel: 'JetBrains Mono', monospace;
     --font-glitch: 'Fira Code', monospace;
@@ -2007,28 +2004,13 @@ body {
 }
 
 
-
-* Update the section container */
-.content-section {
-    display: none; /* Keeps tabs working */
-    opacity: 1;
-    filter: none !important;      /* REMOVE THE BLUR */
-    transform: none !important;   /* REMOVE THE SLIDE */
-    transition: opacity 0.4s ease; /* Keep a simple fade for tab switching */
-    padding: 120px 10%;
+:root {
+    scroll-behavior: smooth; /* Native backup for smooth scrolling */
 }
 
-/* Force the active section to show */
-.content-section.active {
-    display: block !important;
+section {
+    scroll-margin-top: 80px; /* Adjust this to match your Header's height */
 }
 
-/* Check your glass-panel as well */
-.glass-panel {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px); /* This blur is GOOD (it's the background glass effect) */
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 15px;
-}
+
+
