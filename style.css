@@ -9,7 +9,7 @@ body {
     /* Deep Navy center (#0a192f) to Pitch Black edges (#050505) */
     background: radial-gradient(circle at center, #0a192f 0%, #050505 100%);
     background-attachment: fixed; /* Keeps the glow centered while you scroll */
-	font-family: 'Inter', sans-serif;
+	font-family: 'JetBrains Mono', monospace; /* Or your preferred choice */
     margin: 0;
 	color: white;
 }
@@ -2124,3 +2124,38 @@ body::after {
                 0 0 15px rgba(0, 140, 255, 0.2);
 }
 
+.glass-panel::after,
+.quote-box::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(0, 195, 255, 0.8), 
+        transparent
+    );
+    box-shadow: 0 0 20px rgba(0, 140, 255, 0.6);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Activate the scan line on page load */
+.loaded .glass-panel::after,
+.loaded .quote-box::after {
+    display: block;
+    animation: panel-scan 6s linear infinite;
+}
+
+.quote-box blockquote {
+    font-family: 'JetBrains Mono', monospace; /* Or your preferred choice */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ffffff;
+    margin: 0;
+    font-style: italic;
+    opacity: 0.9;
+}
