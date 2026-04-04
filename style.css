@@ -228,13 +228,14 @@ body {
     border-bottom: 2px solid var(--accent);
 }
 
-/* Enhanced Section Fade */
+/* Enhanced Section Fade -----------------*/
 .content-section {
-    display: none;
-    opacity: 0;
-    filter: blur(10px); /* Content starts blurred */
-    transform: scale(0.95);
-    transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
+    display: block; /* Always visible */
+    opacity: 1;      /* No more fading */
+    transform: none; /* No more sliding */
+    filter: none;    /* No more blurring */
+    padding: 100px 10%; 
+    min-height: auto;
 }
 
 .content-section.active {
