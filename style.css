@@ -4,6 +4,14 @@
     --text: #e0e0e0;
     --card-bg: #151515;
 }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=JetBrains+Mono:ital,wght@0,300;0,500;1,300&display=swap');
+
+:root {
+    --heading-font: 'Inter', sans-serif;
+    --body-font: 'Inter', sans-serif;
+    --mono-font: 'JetBrains Mono', monospace;
+    --primary-blue: #008cff;
+}
 
 body {
     /* Deep Navy center (#0a192f) to Pitch Black edges (#050505) */
@@ -2158,5 +2166,46 @@ p, li, blockquote {
         background 0.5s ease, 
         border 0.5s ease, 
         box-shadow 0.5s ease;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: #00050a;
+    color: #ffffff;
+    line-height: 1.6;
+    /* Essential for sharp text on dark/transparent backgrounds */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .nav-links {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    letter-spacing: -0.02em; /* Tightens the letters for a "UI" look */
+    text-transform: uppercase;
+}
+
+/* Apply Mono to your quotes and technical lists */
+.quote-box blockquote,
+.technical-skills,
+.experience-date,
+code {
+    font-family: var(--mono-font);
+    font-weight: 300;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+}
+
+/* Make the quote itself slightly italic for style */
+.quote-box blockquote {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.glass-panel p, 
+.quote-box p {
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.9); /* Slightly off-white is easier to read on glass */
 }
 
