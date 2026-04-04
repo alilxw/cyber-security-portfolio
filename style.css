@@ -2017,49 +2017,54 @@ body::after {
 
 /* Ensure the panel can contain the absolute-positioned scanner */
 .glass-panel {
-    position: relative;
-    overflow: hidden;
+    /* ... existing styles ... */
     
-    /* 1. Pure Transparency + Blur */
-    background: rgba(255, 255, 255, 0.02); /* Almost invisible background */
-    backdrop-filter: blur(15px); /* Strong blur to neutralize Matrix background */
-    -webkit-backdrop-filter: blur(15px);
+    /* 1. Force sharp text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     
-    /* 2. Professional Border & Shape */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 40px;
+    /* 2. Prevent the "shimmer" during transform */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0); /* Forces GPU mode earlier */
     
-    /* 3. Smooth Transition for the 3D effect */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-style: preserve-3d;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* 3. Smooth out the transition */
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                background 0.3s ease, 
+                box-shadow 0.3s ease;
 }
 
-/* 4. The 3D Pop on Hover */
 .glass-panel:hover {
-    transform: translateY(-10px) scale(1.02) rotateX(2deg);
-    background: rgba(255, 255, 255, 0.05); /* Slight brighten on hover */
-    border: 1px solid rgba(0, 140, 255, 0.4); /* Blue edge highlight */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 
-                0 0 15px rgba(0, 140, 255, 0.2); /* Subtle blue glow */
+    /* Use translate3d instead of translateY for better GPU performance */
+    transform: translate3d(0, -10px, 0) scale(1.02);
+    
+    /* 4. Ensure the text stays on top and crisp */
+    filter: none !important; /* Ensures no blur is accidentally applied to the text layer */
 }
 
-.glass-panel::after {
+/* Create a dedicated background layer inside the panel */
+.glass-panel::before {
     content: "";
     position: absolute;
-    top: -100px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    
-    /* Electric Blue Gradient */
-    background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba(0, 195, 255, 0.8), 
-        transparent
-    );
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: -1; /* Puts the blur BEHIND the text */
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* Remove backdrop-filter from the main .glass-panel class */
+.glass-panel {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    /* ... other styles ... */
+}
     
     /* Blue Glow Effect */
     box-shadow: 0 0 20px rgba(0, 140, 255, 0.6);
