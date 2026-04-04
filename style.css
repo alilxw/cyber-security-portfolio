@@ -2085,3 +2085,71 @@ body::after {
     90% { opacity: 1; }
     100% { transform: translateY(1200px); top: 110%; opacity: 0; }
 }
+
+
+
+.quote-box {
+    position: relative;
+    overflow: hidden;
+    
+    /* 1. Transparent + Blur Settings */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* 2. Border & Aesthetics */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+    
+    /* 3. 3D & Sharp Text Fixes */
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translate3d(0, 0, 0); 
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 4. The 3D Hover Pop */
+.quote-box:hover {
+    transform: translate3d(0, -8px, 0) scale(1.01);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 140, 255, 0.3); /* Subtle blue edge */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+
+/* Attach the same scan line to the quote box */
+.quote-box::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(0, 195, 255, 0.7), 
+        transparent
+    );
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.5);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Triggered on page load */
+.loaded .quote-box::after {
+    animation: panel-scan 7s linear infinite; /* Slightly slower for quotes */
+}
+
+.quote-box blockquote::before {
+    content: "“";
+    color: rgba(0, 140, 255, 0.8);
+    font-size: 3rem;
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    text-shadow: 0 0 10px rgba(0, 140, 255, 0.5);
+    font-family: serif;
+}
