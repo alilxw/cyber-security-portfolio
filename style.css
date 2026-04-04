@@ -1897,15 +1897,4 @@ body.loaded #main-content {
 }
 
 
-@keyframes textFlicker {
-    0%, 100% { opacity: 1; }
-    92% { opacity: 1; }
-    93% { opacity: 0.5; }
-    94% { opacity: 1; }
-    98% { opacity: 0.3; }
-    99% { opacity: 1; }
-}
 
-.flicker {
-    animation: textFlicker 3s linear infinite;
-}
