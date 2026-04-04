@@ -39,7 +39,6 @@
 
   
     <canvas id="matrix-bg"></canvas>
-	<canvas id="data-trail"></canvas>
     <div id="transition-overlay"></div> 
     <header class="main-header">
     <nav class="navbar">
@@ -60,7 +59,7 @@
 </header>
 
     <main id="content-wrapper">
-     <section id="about-me" class="content-section">
+     <section id="about-me" class="content-section active" class="content-section reveal-on-scroll">
 		 <div class="glass-panel">
     <div class="hero-container">
         <div class="hero-content">
@@ -92,7 +91,7 @@
 
 
 
-       <section id="experience"  class="content-section">
+       <section id="experience" class="content-section" class="content-section reveal-on-scroll">
 		   <div class="glass-panel">
     <h2 class="section-title"><span class="accent-text">#My_Experiences </span></h2>
 
@@ -145,7 +144,7 @@
     </div>
 		</div>
 
-    <div class="exp-category" >
+    <div class="exp-category">
 		<div class="glass-panel">
         <span class="cat-el">EXPERIENCES</span>
         <h3 class="cat-title">Certifications</h3>
@@ -169,81 +168,7 @@
 		</div>
 </section>
 
-<section id="skills" class="content-section">
-	<div class="glass-panel">
-		
-    <h2 class="section-title"><span class="accent-text">#My_Arsenal</span> </h2>
-    <div class="skill-category">
-        <h3 class="skill-cat-title">> _network_&_perimeter_defense</h3>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <i class="fas fa-network-wired"></i>
-                <span class="skill-name">Cisco Networking</span>
-                <span class="skill-status active-status">Active Operations</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-shield-alt"></i>
-                <span class="skill-name">Penetration Testing</span>
-                <span class="skill-status active-status">Kali Linux / Parrot OS</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-ethernet"></i>
-                <span class="skill-name">TCP/IP & VPN</span>
-                <span class="skill-status active-status">Configuration</span>
-            </div>
-        </div>
-    </div>
-		
 
-    <div class="skill-category">
-        <h3 class="skill-cat-title">> _monitoring_&_incident_response</h3>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <img src="assets/splunk-logo.png" alt="Splunk Logo" class="tool-icon">
-                <span class="skill-name">Splunk</span>
-                <span class="skill-status active-status">SIEM Operator</span>
-            </div>
-            <div class="skill-item">
-                <img src="assets/wazuh-logo.png" alt="Wazuh Logo" class="tool-icon wazuh-adjust">
-                <span class="skill-name">Wazuh</span>
-                <span class="skill-status active-status">HIDS & EDR</span>
-            </div>
-            <div class="skill-item">
-                <img src="assets/nagios-logo.png" alt="Nagios Logo" class="tool-icon">
-                <span class="skill-name">Nagios Core</span>
-                <span class="skill-status active-status">System Monitoring</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="skill-category">
-        <h3 class="skill-cat-title">> _os_&_platform_administration</h3>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <i class="devicon-linux-plain colored"></i>
-                <span class="skill-name">System Administration</span>
-                <span class="skill-status active-status">Linux / Windows</span>
-            </div>
-            <div class="skill-item">
-                <i class="devicon-windows8-original colored"></i>
-                <span class="skill-name">Windows Server</span>
-                <span class="skill-status active-status">AD / Group Policy</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-project-diagram"></i>
-                <span class="skill-name">VMware Pro</span>
-                <span class="skill-status active-status">Virtualization</span>
-            </div>
-        <div class="skill-item">
-            <i class="fas fa-boxes"></i>
-            <span class="skill-name">GLPI</span>
-            <span class="skill-status active-status">IT Asset & Helpdesk Mgmt</span>
-        </div>
-        </div>
-    </div>
-		</div>
-	
-</section>
    
             </div>
         </section>
@@ -298,7 +223,81 @@
    
 
 
+<section id="skills" class="content-section">
+	<div class="glass-panel">
+		
+    <h2 class="section-title"><span class="accent-text">#My_Arsenal</span> </h2>
+    <div class="skill-category">
+        <h3 class="skill-cat-title">> _network_&_perimeter_defense</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-network-wired"></i>
+                <span class="skill-name">Cisco Networking</span>
+                <span class="skill-status active-status">Active Operations</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-shield-alt"></i>
+                <span class="skill-name">Penetration Testing</span>
+                <span class="skill-status active-status">Kali Linux / Parrot OS</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-ethernet"></i>
+                <span class="skill-name">TCP/IP & VPN</span>
+                <span class="skill-status active-status">Configuration</span>
+            </div>
+        </div>
+    </div>
+		
 
+    <div class="skill-category">
+        <h3 class="skill-cat-title">> _monitoring_&_incident_response</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <img src="assets/splunk-logo.png" alt="Splunk Logo" class="tool-icon">
+                <span class="skill-name">Splunk</span>
+                <span class="skill-status active-status">SIEM Operator</span>
+            </div>
+            <div class="skill-item">
+                <img src="assets/wazuh-logo.png" alt="Wazuh Logo" class="tool-icon wazuh-adjust">
+                <span class="skill-name">Wazuh</span>
+                <span class="skill-status active-status">HIDS & EDR</span>
+            </div>
+            <div class="skill-item">
+                <img src="assets/nagios-logo.png" alt="Nagios Logo" class="tool-icon">
+                <span class="skill-name">Nagios Core</span>
+                <span class="skill-status active-status">System Monitoring</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="skill-category">
+        <h3 class="skill-cat-title">> _os_&_platform_administration</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fab fa-linux"></i>
+                <span class="skill-name">System Administration</span>
+                <span class="skill-status active-status">Linux / Windows</span>
+            </div>
+            <div class="skill-item">
+                <i class="fab fa-windows"></i>
+                <span class="skill-name">Windows Server</span>
+                <span class="skill-status active-status">AD / Group Policy</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-project-diagram"></i>
+                <span class="skill-name">VMware Pro</span>
+                <span class="skill-status active-status">Virtualization</span>
+            </div>
+        <div class="skill-item">
+            <i class="fas fa-boxes"></i>
+            <span class="skill-name">GLPI</span>
+            <span class="skill-status active-status">IT Asset & Helpdesk Mgmt</span>
+        </div>
+        </div>
+    </div>
+		</div>
+	
+</section>
 
         <section id="cv" class="content-section">
 			<div class="glass-panel">
@@ -355,4 +354,3 @@
 </body>
 
 </html>
-
