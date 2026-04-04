@@ -1974,3 +1974,25 @@ strong {
     position: relative;
     z-index: 10; /* Ensures your text stays readable and clickable */
 }
+
+
+@keyframes ambient-breath {
+    0%, 100% {
+        /* Your standard dark state */
+        background: radial-gradient(circle at center, #071324 0%, #050505 100%);
+    }
+    50% {
+        /* The 'Inhale' - slightly brighter and wider center */
+        background: radial-gradient(circle at center, #0c2340 0%, #050505 100%);
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Apply the breath to the body or your main background container */
+    background: radial-gradient(circle at center, #071324 0%, #050505 100%);
+    animation: ambient-breath 10s ease-in-out infinite;
+    overflow-x: hidden; /* Extra safety for that scanline effect */
+}
