@@ -315,6 +315,40 @@ animate();
 
 
 
+// --- GLITCH ON SCROLL ENGINE ---
+function initGlitchScroll() {
+    const options = {
+        root: null, // use the viewport
+        threshold: 0.15, // trigger when 15% of the section is visible
+        rootMargin: "0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add the 'active' class to trigger CSS animation
+                entry.target.classList.add('active');
+                // Once revealed, we don't need to watch it anymore
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    // Target every element with the reveal class
+    const targets = document.querySelectorAll('.reveal-on-scroll');
+    targets.forEach(target => observer.observe(target));
+}
+
+// --- INTEGRATION WITH YOUR LOADER ---
+// Find your existing loader code and add 'initGlitchScroll()' 
+// where the loading screen fades out. 
+// Example:
+/*
+function endLoading() {
+    document.getElementById('loader-wrapper').classList.add('fade-out');
+    initGlitchScroll(); // <--- START THE OBSERVER HERE
+}
+*/
 
 // --- TERMINAL NAVIGATION ENGINE ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
