@@ -51,17 +51,23 @@ body {
 }
 
 /* Tab Transition Logic */
+/* Ensure the observer can 'see' the sections even when hidden */
 .content-section {
-    display: none;
+    display: block; /* MUST be block or flex, NOT none */
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden; 
+    filter: blur(10px);
+    transform: translateY(50px); /* Slide up effect */
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     padding: 120px 10%;
+    min-height: 40vh; /* Ensures there is enough 'area' to trigger the scroll */
 }
 
+/* The state triggered by your JavaScript */
 .content-section.active {
-    display: block;
     opacity: 1;
+    visibility: visible;
+    filter: blur(0px);
     transform: translateY(0);
 }
 
