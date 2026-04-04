@@ -318,48 +318,18 @@ animate();
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        threshold: 0.15 // Trigger when 15% of the element is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Add the 'active' class to start the reconstruction
-                entry.target.classList.add('active');
-                
-                // Once it's revealed, stop observing it for performance
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Attach the observer to every element with our custom class
-    const scrollElements = document.querySelectorAll('.reveal-on-scroll');
-    scrollElements.forEach(el => observer.observe(el));
-});
-
-// Inside your existing loader function (where you hide the Ali_soc.exe screen)
-function hideLoader() {
-    document.getElementById('loader-wrapper').style.display = 'none';
-    document.getElementById('main-content').style.opacity = '1';
-    
-    // START THE OBSERVER HERE
-    initScrollReveal(); 
+/* 1. THE HIDDEN STATE */
+.reveal-on-scroll {
+    opacity: 0;
+    filter: blur(15px) brightness(2);
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform, filter; /* Optimizes performance */
 }
 
-function initScrollReveal() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            console.log('Checking element:', entry.target); // Debugging line
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
+/* 2. THE REVEAL STATE (Must be below the hidden state) */
+.reveal-on-scroll.active {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: translateY(0);
 }
