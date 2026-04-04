@@ -2113,24 +2113,6 @@ body::after {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* 4. The 3D "Float" Hover */
-/* Update this for all your containers */
-/* This applies to all your container types */
-.glass-panel, 
-.quote-box, 
-.service-card, 
-#about-me .container {
-    position: relative; /* CRITICAL: This keeps the scanner inside */
-    overflow: hidden;    /* CRITICAL: This hides the line when it's "outside" the box */
-    
-    /* Your existing 3D/Blur styles */
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-}
-
 h1, h2, h3 {
     font-weight: 500;
     letter-spacing: -0.5px;
@@ -2177,3 +2159,4 @@ p, li, blockquote {
         border 0.5s ease, 
         box-shadow 0.5s ease;
 }
+
