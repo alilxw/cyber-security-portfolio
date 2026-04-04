@@ -1958,3 +1958,58 @@ strong {
     0% { top: -100%; }
     100% { top: 100%; }
 }
+
+
+
+.cyber-tooltip-trigger {
+    position: relative;
+    cursor: help;
+    color: #007bff;
+    text-decoration: underline dotted rgba(0, 123, 255, 0.5);
+}
+
+/* The Tooltip Window */
+.cyber-tooltip-trigger::after {
+    content: "TITLE: " attr(data-title) "\A IP: " attr(data-ip) "\A STATUS: " attr(data-status) "\A ROLE: " attr(data-role);
+    white-space: pre; /* Essential for the \A line breaks */
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    padding: 10px;
+    background: rgba(10, 25, 47, 0.95); /* Deep Navy */
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+    pointer-events: none;
+}
+
+/* Hover State: The "Pop" Animation */
+.cyber-tooltip-trigger:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+/* Small Triangle at the bottom */
+.cyber-tooltip-trigger:hover::before {
+    content: "";
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: #007bff transparent transparent transparent;
+    opacity: 1;
+    z-index: 1001;
+}
