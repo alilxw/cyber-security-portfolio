@@ -314,22 +314,3 @@ function animate() {
 animate();
 
 
-
-
-
-
-/* 1. THE HIDDEN STATE */
-.reveal-on-scroll {
-    opacity: 0;
-    filter: blur(15px) brightness(2);
-    transform: translateY(50px);
-    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: opacity, transform, filter; /* Optimizes performance */
-}
-
-/* 2. THE REVEAL STATE (Must be below the hidden state) */
-.reveal-on-scroll.active {
-    opacity: 1;
-    filter: blur(0) brightness(1);
-    transform: translateY(0);
-}
