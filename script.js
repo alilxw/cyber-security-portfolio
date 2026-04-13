@@ -268,36 +268,37 @@ document.addEventListener('click', (e) => {
 
 
 
-const arrow = document.createElement('div');
-arrow.id = 'yaka-arrow';
-document.body.appendChild(arrow);
+(function() {
+    console.log("Yaka Arrow Initialized");
 
-let mouseX = 0;
-let mouseY = 0;
-let arrowX = 0;
-let arrowY = 0;
+    const arrow = document.createElement('div');
+    arrow.id = 'yaka-arrow';
+    document.body.appendChild(arrow);
 
-document.addEventListener('mousemove', (e) => {
-    // Adding a 10px offset so it's not exactly where particles are spawned
-    mouseX = e.clientX + 10;
-    mouseY = e.clientY + 10;
-});
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let arrowX = mouseX;
+    let arrowY = mouseY;
 
-function animateArrow() {
-    // Smoother interpolation
-    let dx = mouseX - arrowX;
-    let dy = mouseY - arrowY;
-    
-    // Increased speed (0.15) so it escapes the particle trail faster
-    arrowX += dx * 0.15; 
-    arrowY += dy * 0.15;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-    let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+    function animate() {
+        let dx = mouseX - arrowX;
+        let dy = mouseY - arrowY;
 
-    // Use translate3d for GPU acceleration - ensures it stays visible
-    arrow.style.transform = `translate3d(${arrowX}px, ${arrowY}px, 0) rotate(${angle}deg)`;
+        // Increased speed for testing
+        arrowX += dx * 0.2;
+        arrowY += dy * 0.2;
 
-    requestAnimationFrame(animateArrow);
-}
+        let angle = Math.atan2(dy, dx) * 180 / Math.PI;
 
-animateArrow();
+        // Force visibility and position
+        arrow.style.transform = `translate3d(${arrowX}px, ${arrowY}px, 0) rotate(${angle}deg)`;
+        
+        requestAnimationFrame(animate);
+    }
+    animate();
+})();
