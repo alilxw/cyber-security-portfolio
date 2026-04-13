@@ -2211,28 +2211,3 @@ code {
 
 
 
-#yaka-arrow {
-    position: fixed !important; /* Overrides any other positioning */
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    background: #ff0055; /* Changed to NEON RED temporarily to test visibility */
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 2147483647 !important; /* Maximum possible z-index */
-    box-shadow: 0 0 20px #ff0055, 0 0 40px #ff0055;
-    will-change: transform;
-}
-
-#yaka-arrow::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 2px;
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(to left, #ff0055, transparent);
-    transform: translateY(-50%);
-    filter: blur(2px);
-}
