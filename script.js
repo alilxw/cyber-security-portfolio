@@ -335,45 +335,27 @@ let mouseY = 0;
 let arrowX = 0;
 let arrowY = 0;
 
-// Track mouse position
 document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    // Adding a 10px offset so it's not exactly where particles are spawned
+    mouseX = e.clientX + 10;
+    mouseY = e.clientY + 10;
 });
 
 function animateArrow() {
-    // Physics: The arrow "chases" the mouse position
-    // Increase 0.1 to make it faster/snappier
+    // Smoother interpolation
     let dx = mouseX - arrowX;
     let dy = mouseY - arrowY;
     
-    arrowX += dx * 0.08; 
-    arrowY += dy * 0.08;
+    // Increased speed (0.15) so it escapes the particle trail faster
+    arrowX += dx * 0.15; 
+    arrowY += dy * 0.15;
 
-    // Calculate rotation so the arrow points where it's flying
     let angle = Math.atan2(dy, dx) * 180 / Math.PI;
 
+    // Use translate3d for GPU acceleration - ensures it stays visible
     arrow.style.transform = `translate3d(${arrowX}px, ${arrowY}px, 0) rotate(${angle}deg)`;
 
     requestAnimationFrame(animateArrow);
 }
 
 animateArrow();
-
-
-
-let isIdle = true;
-let timer;
-
-document.addEventListener('mousemove', () => {
-    isIdle = false;
-    clearTimeout(timer);
-    // After 3 seconds of no movement, it starts patrolling
-    timer = setTimeout(() => { isIdle = true; }, 3000);
-});
-
-// Inside animateArrow(), you'd add:
-if (isIdle) {
-    mouseX = window.innerWidth / 2 + Math.sin(Date.now() / 1000) * 300;
-    mouseY = window.innerHeight / 2 + Math.cos(Date.now() / 1500) * 200;
-}
