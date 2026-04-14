@@ -2210,4 +2210,11 @@ code {
 }
 
 
-
+/* Apply this to your section headers */
+.decrypt-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: inline-block;
+    min-height: 1.2em; /* Prevents layout jumping */
+}
