@@ -329,19 +329,3 @@ animate();
 
 
 
-const toggle = document.getElementById('lockdown-toggle');
-const statusVal = document.querySelector('.status-val');
-
-toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-        document.documentElement.setAttribute('data-text', 'lockdown'); // For CSS
-        document.body.setAttribute('data-theme', 'lockdown');
-        statusVal.innerText = "INCIDENT_RESPONSE";
-        
-        // Optional: Add a "glitch" sound or screen shake effect here
-        console.log("ALERT: DEFENSIVE MEASURES ACTIVATED");
-    } else {
-        document.body.removeAttribute('data-theme');
-        statusVal.innerText = "MONITORING";
-    }
-});
