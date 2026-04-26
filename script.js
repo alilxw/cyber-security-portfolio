@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// --- LOADER TYPEWRITER LOGIC ---
 const loaderText = document.getElementById('loader-typewriter');
 const loaderContainer = document.querySelector('.loader-typewriter-container');
-const loaderPhrases = ["Cyber Security Analyst","Information Systems Security Manager"];
+const loaderPhrases = ["Cyber Security Analyst","PurpleTeam"];
 let lPIdx = 0, lCIdx = 0, lIsDeleting = false;
 
 function loaderTypeEffect() {
