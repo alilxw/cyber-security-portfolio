@@ -56,7 +56,7 @@ loaderTypeEffect();
     let isManualScroll = false; // Prevents observer conflict during clicks
 
     // --- 1. TYPEWRITER EFFECT ---
-    const phrases = ["SOC Analyst","Cyber Security Operations","Information Systems Security Manager"];
+    const phrases = ["Cyber Security Analyst","Cyber Security Operations","PurpleTeam 🟪"];
     let pIdx = 0, cIdx = 0, isDeleting = false, typeSpeed = 100;
 
     function typeEffect() {
