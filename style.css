@@ -2209,5 +2209,10 @@ code {
     color: rgba(255, 255, 255, 0.9); /* Slightly off-white is easier to read on glass */
 }
 
+.profile-pic {
+    width: 200px; /* Increase this value */
+    height: auto; 
+    border-radius: 50%; /* Keeps it circular */
+}
 
 
