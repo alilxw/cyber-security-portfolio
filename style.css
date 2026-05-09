@@ -937,22 +937,6 @@ h1.flicker {
     padding: 20px;
 }
 
-/* Make the photo larger */
-#my-photo {
-    width: 100%;
-    max-width: 480px; /* Increased from 380px to make it look bigger */
-    height: 480;
-    display: block;
-    position: relative;
-    filter: drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    transition: all 0.4s ease;
-    z-index: 1;
-	
-	    /* THE GLOW SYSTEM */
-    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    
-    transition: all 0.5s ease;
-}
 
 
 /* Ensure the box takes up the right amount of space */
@@ -966,8 +950,26 @@ h1.flicker {
 
 
 
+#my-photo {
+    width: 100%;
+    max-width: 550px; /* Increased to make it stand out */
+    height: auto;     /* Changed from 480 to auto to keep the image ratio perfect */
+    display: block;
+    margin: 0 auto;   /* Centers the image */
+    position: relative;
+    z-index: 1;
+
+    /* THE GLOW SYSTEM */
+    /* Combined your filters: Grayscale + Contrast + Blue Glow */
+    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
+    
+    /* Smooth hover transitions */
+    transition: all 0.5s ease;
+}
+
+/* Optional: Hover effect to bring back color (the "Active Defense" feel) */
 #my-photo:hover {
-    filter: grayscale(0.5) contrast(1.3) drop-shadow(0 0 50px var(--accent));
+    filter: grayscale(0) contrast(1) drop-shadow(0 0 40px rgba(0, 123, 255, 0.8));
     transform: scale(1.02);
 }
 
@@ -1163,12 +1165,7 @@ h1.flicker {
         padding: 0 10px;
     }
 
-    /* Image styling */
-    #my-photo {
-        max-width: 320px;
-        margin: 0 auto;
-    }
-
+   
     /* Quote styling */
     .quote-box {
         padding: 20px 15px;
