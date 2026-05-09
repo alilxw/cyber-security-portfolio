@@ -210,21 +210,21 @@
                 <h4>ATTACK_ZONE</h4>
                 <ul>
                     <li>Kali Linux (Ethical Hacking)</li>
-                    <li>Nmap / Metasploit Framework</li>
+                    <li>Exploitation Framework</li>
                 </ul>
             </div>
 
             <div class="topo-connector">
                 <i class="fas fa-shield-alt firewall-icon"></i>
-                <span>PFSense Firewall</span>
+                <span>FortiGate Firewall</span>
             </div>
 
             <div class="topo-node blue-zone">
                 <i class="fas fa-server node-icon"></i>
                 <h4>DEFENSIVE_CORE</h4>
                 <ul>
-                    <li>Ubuntu Server (Wazuh Manager)</li>
-                      <li>GLPI (ITSM/Ticketing)</li>
+                    <li>SIEM Server (Wazuh Manager)</li>
+                      <li>DFIR (IRIS integration with Wazuh)</li>
                 </ul>
             </div>
 
@@ -241,9 +241,9 @@
     </div>
 			<div class="tech-insight">
     <p><strong><i class="fas fa-info-circle"></i> Security Logic:</strong> 
-    Traffic is filtered through <strong>PFSense</strong> using strict ACLs. 
+    Traffic is filtered through <strong>FortiGate</strong> using strict ACLs. 
     <strong>Wazuh Agents</strong> on all endpoints forward syslogs via encrypted TLS 
-    to the centralized manager for real-time alerting and automated response.</p>
+    to the centralized manager for real-time alerting and automated response,digital forensics and incidents response.</p>
 </div>
 </section>
    
