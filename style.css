@@ -952,7 +952,7 @@ h1.flicker {
 
 #my-photo {
     width: 100%;
-    max-width: 550px; /* Increased to make it stand out */
+    max-width: 600px; /* Increased to make it stand out */
     height: auto;     /* Changed from 480 to auto to keep the image ratio perfect */
     display: block;
     margin: 0 auto;   /* Centers the image */
