@@ -1203,9 +1203,14 @@ h1.flicker {
         gap: 20px;
     }
     
+    /* MOBILE FIX */
+@media (max-width: 768px) {
     #my-photo {
-        max-width: 300px;
+        max-width: 90%; /* On phones, the photo will now take up 90% of the screen width */
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
+}
     
     .hero-text-wrapper h1 {
         font-size: 1.8rem;
