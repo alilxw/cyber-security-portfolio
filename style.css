@@ -952,7 +952,7 @@ h1.flicker {
 
 #my-photo {
     width: 100%;
-    max-width: 600px; /* Increased to make it stand out */
+    max-width: 650px; /* Increased to make it stand out */
     height: auto;     /* Changed from 480 to auto to keep the image ratio perfect */
     display: block;
     margin: 0 auto;   /* Centers the image */
@@ -970,7 +970,7 @@ h1.flicker {
 /* Optional: Hover effect to bring back color (the "Active Defense" feel) */
 #my-photo:hover {
     filter: grayscale(0) contrast(1) drop-shadow(0 0 40px rgba(0, 123, 255, 0.8));
-    transform: scale(1.10);
+    transform: scale(1.02);
 }
 
 
