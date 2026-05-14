@@ -141,6 +141,34 @@ body {
 
 	
 }
+#my-photo {
+    width: 100%;
+    max-width: 500px; /* Size for Desktop */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+    /* THE GLOW SYSTEM */
+    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
+    transition: all 0.5s ease;
+}
+
+/* Hover Effect */
+#my-photo:hover {
+    filter: grayscale(0) contrast(1) drop-shadow(0 0 40px rgba(0, 123, 255, 0.8));
+    transform: scale(1.02);
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    #my-photo {
+        max-width: 90%; /* On phones, the photo will now take up 90% of the screen width */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
 
 
 
@@ -2166,37 +2194,5 @@ code {
     letter-spacing: 0.01em;
     color: rgba(255, 255, 255, 0.9); /* Slightly off-white is easier to read on glass */
 }
-
-	/* ALL DEVICES */
-#my-photo {
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-    
-    /* Scaling logic */
-    width: 100%;
-    max-width: 480px; /* Desktop Size */
-    height: auto; 
-
-    /* THE GLOW SYSTEM */
-    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    transition: all 0.5s ease;
-}
-
-/* PHONE SPECIFIC FIX */
-@media (max-width: 600px) {
-    #my-photo {
-        /* Force it to fill the screen */
-        width: 100vw !important; 
-        max-width: 100% !important;
-        
-        /* Optional: move it closer to the edges */
-        margin-left: 0;
-        margin-right: 0;
-        
-        /* Adjusting the glow for smaller screens so it doesn't bleed out */
-        filter: grayscale(1) contrast(1.2) drop-shadow(0 0 15px rgba(0, 123, 255, 0.4));
-    }
 
 
