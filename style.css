@@ -143,24 +143,26 @@ body {
 }
 #my-photo {
     width: 100%;
-    max-width: 500px; /* Size for Desktop */
-    height: auto;
+    max-width: 600px; /* Increased to make it stand out */
+    height: auto;     /* Changed from 480 to auto to keep the image ratio perfect */
     display: block;
-    margin: 0 auto;
+    margin: 0 auto;   /* Centers the image */
     position: relative;
     z-index: 1;
 
     /* THE GLOW SYSTEM */
+    /* Combined your filters: Grayscale + Contrast + Blue Glow */
     filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
+    
+    /* Smooth hover transitions */
     transition: all 0.5s ease;
 }
 
-/* Hover Effect */
+/* Optional: Hover effect to bring back color (the "Active Defense" feel) */
 #my-photo:hover {
     filter: grayscale(0) contrast(1) drop-shadow(0 0 40px rgba(0, 123, 255, 0.8));
-    transform: scale(1.02);
+    transform: scale(1.10);
 }
-
 /* MOBILE FIX */
 @media (max-width: 768px) {
     #my-photo {
