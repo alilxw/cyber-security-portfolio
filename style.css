@@ -950,30 +950,6 @@ h1.flicker {
 
 
 
-#my-photo {
-    width: 100%;
-    max-width: 600px; /* Increased to make it stand out */
-    height: auto;     /* Changed from 480 to auto to keep the image ratio perfect */
-    display: block;
-    margin: 0 auto;   /* Centers the image */
-    position: relative;
-    z-index: 1;
-
-    /* THE GLOW SYSTEM */
-    /* Combined your filters: Grayscale + Contrast + Blue Glow */
-    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
-    
-    /* Smooth hover transitions */
-    transition: all 0.5s ease;
-}
-
-/* Optional: Hover effect to bring back color (the "Active Defense" feel) */
-#my-photo:hover {
-    filter: grayscale(0) contrast(1) drop-shadow(0 0 40px rgba(0, 123, 255, 0.8));
-    transform: scale(1.10);
-}
-
-
 
 .quote-box {
     position: relative;
@@ -1203,27 +1179,7 @@ h1.flicker {
         gap: 20px;
     }
     
-    /* MOBILE FIX */
-@media (max-width: 768px) {
-    #my-photo {
-        max-width: 90%; /* On phones, the photo will now take up 90% of the screen width */
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-}
-    
-    .hero-text-wrapper h1 {
-        font-size: 1.8rem;
-    }
-    
-    .bio-long {
-        font-size: 0.85rem;
-    }
-    
-    .quote-text {
-        font-size: 0.8rem;
-    }
-}
+  
 
 /* --- MUTED TERMINAL FLICKER --- */
 @keyframes text-flicker {
@@ -2211,5 +2167,36 @@ code {
     color: rgba(255, 255, 255, 0.9); /* Slightly off-white is easier to read on glass */
 }
 
+	/* ALL DEVICES */
+#my-photo {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    
+    /* Scaling logic */
+    width: 100%;
+    max-width: 480px; /* Desktop Size */
+    height: auto; 
+
+    /* THE GLOW SYSTEM */
+    filter: grayscale(1) contrast(1.2) drop-shadow(0 0 30px rgba(0, 123, 255, 0.6));
+    transition: all 0.5s ease;
+}
+
+/* PHONE SPECIFIC FIX */
+@media (max-width: 600px) {
+    #my-photo {
+        /* Force it to fill the screen */
+        width: 100vw !important; 
+        max-width: 100% !important;
+        
+        /* Optional: move it closer to the edges */
+        margin-left: 0;
+        margin-right: 0;
+        
+        /* Adjusting the glow for smaller screens so it doesn't bleed out */
+        filter: grayscale(1) contrast(1.2) drop-shadow(0 0 15px rgba(0, 123, 255, 0.4));
+    }
 
 
