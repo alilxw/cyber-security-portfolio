@@ -2215,3 +2215,13 @@ code {
     letter-spacing: 0.01em;
     color: rgba(255, 255, 255, 0.9); /* Slightly off-white is easier to read on glass */
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#content-wrapper {
+    flex: 1; /* Takes all available space, pushing footer down */
+}
