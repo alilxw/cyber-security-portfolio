@@ -137,13 +137,6 @@ body {
 
 .highlight { color: var(--accent); }
 
-
-
-	
-}
-
-
-
 /* --- 5. BUTTONS (FIXED) --- */
 .cv-btn, .btn {
     display: inline-block;
@@ -176,6 +169,8 @@ body {
     transform: translateY(-5px); /* The "lift" effect from your skills */
     box-shadow: 0 0 20px rgba(0, 123, 255, 0.4); /* The blue neon glow */
 }
+
+
 .project-icons i {
     transition: transform 0.3s ease, text-shadow 0.3s ease;
     cursor: help;
@@ -383,7 +378,7 @@ img {
     box-sizing: border-box; /* Important for proper width calculation */
     
     /* THE BLUR FIX */
-    background: rgba(5, 5, 5, 0.2); !important; /* Semi-transparent */
+    background: rgba(5, 5, 5, 0.2) !important; /* Semi-transparent */
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     
@@ -438,9 +433,6 @@ img {
     font-size: 1.05rem;
     color: #cccccc;
     margin-top: 20px;
-}
-
-
 }
 
 .nav-links {
@@ -2210,5 +2202,13 @@ code {
     letter-spacing: 0.01em;
     color: rgba(255, 255, 255, 0.9); /* Slightly off-white is easier to read on glass */
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+#content-wrapper {
+    flex: 1; /* Takes all available space, pushing footer down */
+}
 
