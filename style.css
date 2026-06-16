@@ -1782,7 +1782,7 @@ body.loaded #main-content {
 .footer-socials {
     display: flex;
     justify-content: center;
-    gap: 15px; 
+    gap: 20px; 
     margin-top: 20px;
     
     /* 4. REMOVED REDUNDANT BACKGROUND: 
