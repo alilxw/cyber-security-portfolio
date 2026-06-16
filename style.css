@@ -2227,3 +2227,10 @@ body {
 #content-wrapper {
     flex: 1; /* Takes all available space, pushing footer down */
 }
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
