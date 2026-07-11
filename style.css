@@ -483,6 +483,7 @@ img {
 .hero-text-wrapper {
     flex: 1.4;
     text-align: left;
+	font-size: 7rem;
 }
 
 .bio-long {
