@@ -483,7 +483,6 @@ img {
 .hero-text-wrapper {
     flex: 1.4;
     text-align: left;
-	font-size: 38px;
 }
 
 .bio-long {
@@ -1166,6 +1165,12 @@ h1.flicker {
         gap: 25px;
     }
 
+    #my-photo {
+        width: 70% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+    }
+
     .quote-container {
         order: 3;
         margin-top: 0 !important;
@@ -1228,15 +1233,11 @@ h1.flicker {
         gap: 20px;
     }
     
-    /* MOBILE FIX */
-@media (max-width: 768px) {
     #my-photo {
-        max-width: 90%; /* On phones, the photo will now take up 90% of the screen width */
-        margin-top: 20px;
-        margin-bottom: 20px;
+        width: 78% !important;
+        max-width: 280px !important;
     }
-}
-    
+
     .hero-text-wrapper h1 {
         font-size: 1.8rem;
     }
@@ -2227,4 +2228,52 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+}
+
+/* ============================================================
+   AUTHORITATIVE HERO/PROFILE-PHOTO LAYOUT
+   This block intentionally sits last in the file and uses
+   !important so it wins over the many older, conflicting
+   .hero-content / .hero-image / #my-photo rules above (which
+   were the cause of the profile photo rendering tiny and
+   overlapping on mobile). Don't add more overrides above this
+   block for these selectors — edit this block instead.
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+        gap: 30px !important;
+    }
+
+    .hero-text-wrapper {
+        order: 1 !important;
+        width: 100% !important;
+    }
+
+    .hero-image {
+        order: 2 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+        gap: 30px !important;
+    }
+
+    #my-photo {
+        width: min(320px, 78vw) !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 0 auto !important;
+    }
+
+    .quote-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 0 !important;
+    }
 }
